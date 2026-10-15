@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Executive Command Center</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+<div class="logo">
+        🏥 Healthcare Intelligence
+    </div>
+
+    <a href="executive.html" class="nav-item">
+    📊 Executive Command Center
+    </a>
+    <a href="patient-operations.html" class="nav-item">
+    👥 Patient Operations
+    </a>
+    <a href="doctor-staff.html" class="nav-item">
+    🩺 Doctor & Staff Intelligence
+    </a>
+    <a href="billing-revenue.html" class="nav-item">
+    💰 Billing & Revenue Intelligence
+    </a>
+    <a href="insurance-claims.html" class="nav-item">
+    ✍️ Insurance & Claims Automation
+    </a>
+    <a href="ai-predictive.html" class="nav-item">
+    🤖 AI & Predictive Intelligence
+    </a>
+    <a href="workflow.html" class="nav-item">
+    ⚙️ Workflow Automation
+    </a>
+    <a href="pharmacy-inventory.html" class="nav-item">
+    💊 Pharmacy & Inventory
+    </a>
+    <a href="patient-experience.html" class="nav-item">
+    😊 Patient Experience
+    </a>
+    <a href="financial-intelligence.html" class="nav-item">
+    📈 Financial Intelligence
+    </a>
+    <a href="ai-agent.html" class="nav-item">
+    🤖 Healthcare AI Agent
+    </a>
+
+</aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <header class="header">
+            <h1>Medical Operations Intelligence Dashboard & Automation System
+            </h1>
+            <div class="admin" onclick="toggleLogout()">
+    👤 Administrator
+
+    <button
+        id="logoutButton"
+        onclick="logout(event)"
+        style="
+            display: none;
+            margin-left: 10px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        ">
+        Logout
+    </button>
+</div>
+        </header>
+
+
+        <!-- Executive Dashboard -->
+        <section class="dashboard">
+
+            <h2>Executive Command Center</h2>
+
+            <p class="subtitle">
+                Enterprise-wide healthcare operations overview and performance monitoring
+            </p>
+         <!-- Executive Dashboard Filters -->
+
+<div class="dashboard-filters">
+
+    <div class="filter-group">
+
+        <label for="facilityFilter">
+            Facility
+        </label>
+
+        <select id="facilityFilter">
+            <option value="">All Facilities</option>
+        </select>
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="departmentFilter">
+            Department
+        </label>
+
+        <select id="departmentFilter">
+            <option value="">All Departments</option>
+        </select>
+
+    </div>
+
+
+    
+
+    
+
+   <button
+    onclick="applyExecutiveFilters()"
+    onmousedown="this.style.transform='scale(0.90)';"
+    onmouseup="this.style.transform='scale(1)';"
+    onmouseleave="this.style.transform='scale(1)';"
+    style="
+        background:#2563eb;
+        color:white;
+        border:none;
+        padding:10px 22px;
+        border-radius:6px;
+        font-weight:600;
+        cursor:pointer;
+        transition:transform 0.15s ease;
+    ">
+    Apply Filters
+</button>
+<button
+    onclick="clearExecutiveFilters()"
+    onmousedown="this.style.transform='scale(0.90)';"
+    onmouseup="this.style.transform='scale(1)';"
+    onmouseleave="this.style.transform='scale(1)';"
+    style="
+        background:#6b7280;
+        color:white;
+        border:none;
+        padding:10px 22px;
+        border-radius:6px;
+        font-weight:600;
+        cursor:pointer;
+        transition:transform 0.15s ease;
+    ">
+    Clear
+</button>
+</div>
+
+
+            <!-- Executive KPI Cards -->
+     <div class="cards">
+
+    <div class="card">
+        <div class="card-title">Total Patients</div>
+        <div class="card-value" id="totalPatientsValue">5,000</div>
+        <div class="card-status">Patient Volume</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Admissions</div>
+        <div class="card-value" id="totalAdmissionsValue">428</div>
+        <div class="card-status">Current Period</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Bed Occupancy</div>
+        <div class="card-value" id="bedOccupancyValue">78%</div>
+        <div class="card-status">Hospital Capacity</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Revenue</div>
+        <div class="card-value" id="totalRevenueValue">₹24.6L</div>
+        <div class="card-status">Current Period</div>
+    </div>
+
+    </div>
+
+      <!-- Operational Performance -->
+<div class="performance-section">
+
+    <h3>Operational Performance</h3>
+
+    <div class="performance-grid">
+
+        <div class="performance-card">
+            <div class="performance-title">Patient Flow</div>
+            <div class="performance-value" id="patientFlowValue">92%</div>
+            <div class="performance-text">Operational efficiency</div>
+        </div>
+
+        <div class="performance-card">
+            <div class="performance-title">Appointment Completion</div>
+            <div class="performance-value" id="appointmentCompletionValue">86%</div>
+            <div class="performance-text">Completed appointments</div>
+        </div>
+
+        <div class="performance-card">
+            <div class="performance-title">Staff Utilization</div>
+            <div class="performance-value" id="staffUtilizationValue">81%</div>
+            <div class="performance-text">Workforce utilization</div>
+        </div>
+
+        <div class="performance-card">
+            <div class="performance-title">Claims Processing</div>
+            <div class="performance-value" id="claimsProcessingValue">94%</div>
+            <div class="performance-text">Claims processed</div>
+        </div>
+
+    </div>
+
+</div> 
+<!-- Executive Trends -->
+<div class="trends-section">
+
+   <h3>Executive Trends</h3>
+
+<div class="executive-chart-grid">
+    <div class="trend-card">
+        <h4>Patient Volume By Department</h4>
+        <div class="chart-placeholder">
+            <canvas id="patientVolumeChart"></canvas>
+        </div>
+    </div>
+
+    <div class="trend-card">
+        <h4>Revenue Trend</h4>
+        <div class="chart-placeholder">
+            <canvas id="revenueChart"></canvas>
+        </div>
+    </div>
+
+    <div class="trend-card">
+        <h4>Bed Occupancy</h4>
+        <div class="chart-placeholder">
+            <canvas id="bedChart"></canvas>
+        </div>
+    </div>
+
+    <div class="trend-card">
+        <h4>Department Performance</h4>
+        <div class="chart-placeholder">
+            <canvas id="departmentChart"></canvas>
+        </div>
+    </div>
+
+</div> </section>
+
+    </main>
+
+<script>
+function getExecutiveFilterParams() {
+    const params = new URLSearchParams();
+
+    const facility = document.getElementById("facilityFilter").value;
+    const department = document.getElementById("departmentFilter").value;
+
+    if (facility) params.append("facility", facility);
+    if (department) params.append("department", department);
+
+    return params.toString();
+}
+
+function formatExecutiveRevenue(value) {
+    const amount = Number(value) || 0;
+
+    if (amount >= 10000000) {
+        return "₹" + (amount / 10000000).toFixed(2) + "Cr";
+    }
+
+    if (amount >= 100000) {
+        return "₹" + (amount / 100000).toFixed(2) + "L";
+    }
+
+    if (amount >= 1000) {
+        return "₹" + (amount / 1000).toFixed(2) + "K";
+    }
+
+    return "₹" + amount.toLocaleString("en-IN", {
+        maximumFractionDigits: 2
+    });
+}
+
+async function loadExecutiveKPIs() {
+    const query = getExecutiveFilterParams();
+
+    const response = await fetch(
+        `/api/executive-kpis${query ? "?" + query : ""}`
+    );
+
+    if (!response.ok) {
+        throw new Error("Failed to load Executive KPI data");
+    }
+
+    const data = await response.json();
+
+    document.getElementById("totalPatientsValue").textContent =
+        Number(data.totalPatients || 0).toLocaleString("en-IN");
+
+    document.getElementById("totalAdmissionsValue").textContent =
+        Number(data.totalAdmissions || 0).toLocaleString("en-IN");
+
+    document.getElementById("bedOccupancyValue").textContent =
+        Number(data.totalBedOccupancy || 0).toFixed(2) + "%";
+
+    document.getElementById("totalRevenueValue").textContent =
+        formatExecutiveRevenue(data.totalRevenue);
+
+    document.getElementById("patientFlowValue").textContent =
+        Number(data.patientFlow || 0).toFixed(2) + "%";
+
+    document.getElementById("appointmentCompletionValue").textContent =
+        Number(data.appointmentCompletion || 0).toFixed(2) + "%";
+
+    document.getElementById("staffUtilizationValue").textContent =
+        Number(data.staffUtilization || 0).toFixed(2) + "%";
+
+    document.getElementById("claimsProcessingValue").textContent =
+        Number(data.claimsProcessing || 0).toFixed(2) + "%";
+}
+
+async function loadPatientVolume() {
+    try {
+        const query = getExecutiveFilterParams();
+        const response = await fetch(
+            `/api/patient-volume${query ? "?" + query : ""}`
+        );
+
+        if (!response.ok) throw new Error("Patient volume request failed");
+
+        const data = await response.json();
+        const canvas = document.getElementById("patientVolumeChart");
+        const existingChart = Chart.getChart(canvas);
+
+        if (existingChart) existingChart.destroy();
+
+        window.patientVolumeChartInstance = new Chart(canvas, {
+            type: "bar",
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    label: "Patient Volume",
+                    data: Object.values(data),
+                    backgroundColor: "#3B82F6"
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } catch (error) {
+        console.error("Error loading patient volume:", error);
+    }
+}
+
+async function loadRevenueTrend() {
+    try {
+        const query = getExecutiveFilterParams();
+        const response = await fetch(
+            `/api/revenue-trend${query ? "?" + query : ""}`
+        );
+
+        if (!response.ok) throw new Error("Revenue trend request failed");
+
+        const data = await response.json();
+        const canvas = document.getElementById("revenueChart");
+        const existingChart = Chart.getChart(canvas);
+
+        if (existingChart) existingChart.destroy();
+
+        window.revenueChartInstance = new Chart(canvas, {
+            type: "line",
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    label: "Revenue",
+                    data: Object.values(data),
+                    tension: 0.3,
+                    borderColor: "#16A34A",
+                    backgroundColor: "rgba(22, 163, 74, 0.15)",
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    } catch (error) {
+        console.error("Error loading revenue trend:", error);
+    }
+}
+
+async function loadBedOccupancy() {
+    try {
+        const query = getExecutiveFilterParams();
+        const response = await fetch(
+            `/api/bed-occupancy${query ? "?" + query : ""}`
+        );
+
+        if (!response.ok) throw new Error("Bed occupancy request failed");
+
+        const data = await response.json();
+        const canvas = document.getElementById("bedChart");
+        const existingChart = Chart.getChart(canvas);
+
+        if (existingChart) existingChart.destroy();
+
+        window.bedChartInstance = new Chart(canvas, {
+            type: "bar",
+            data: {
+                labels: Object.keys(data),
+                datasets: [{
+                    label: "Bed Occupancy Rate (%)",
+                    data: Object.values(data),
+                    backgroundColor: "#F59E0B"
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    } catch (error) {
+        console.error("Error loading bed occupancy:", error);
+    }
+}
+
+async function loadDepartmentPerformance() {
+    try {
+        const query = getExecutiveFilterParams();
+
+        const [appointmentResponse, staffResponse] = await Promise.all([
+            fetch(`/api/appointment-performance${query ? "?" + query : ""}`),
+            fetch(`/api/staff-utilization${query ? "?" + query : ""}`)
+        ]);
+
+        if (!appointmentResponse.ok || !staffResponse.ok) {
+            throw new Error("Department performance request failed");
+        }
+
+        const appointmentData = await appointmentResponse.json();
+        const staffData = await staffResponse.json();
+
+        const departments = Object.keys(appointmentData);
+        const appointmentValues = departments.map(
+            department => Number(appointmentData[department] || 0)
+        );
+        const staffValues = departments.map(
+            department => Number(staffData[department] || 0)
+        );
+
+        const canvas = document.getElementById("departmentChart");
+        const existingChart = Chart.getChart(canvas);
+
+        if (existingChart) existingChart.destroy();
+
+        window.departmentChartInstance = new Chart(canvas, {
+            type: "bar",
+            data: {
+                labels: departments,
+                datasets: [
+                    {
+                        label: "Appointment Completion (%)",
+                        data: appointmentValues,
+                        backgroundColor: "#3B82F6"
+                    },
+                    {
+                        label: "Staff Utilization (%)",
+                        data: staffValues,
+                        backgroundColor: "#8B5CF6"
+                    }
+                ]
+            },
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    } catch (error) {
+        console.error("Error loading department performance:", error);
+    }
+}
+
+async function refreshExecutiveDashboard() {
+    try {
+        await loadExecutiveKPIs();
+    } catch (error) {
+        console.error("Error loading Executive KPIs:", error);
+    }
+
+    await Promise.all([
+        loadPatientVolume(),
+        loadRevenueTrend(),
+        loadBedOccupancy(),
+        loadDepartmentPerformance()
+    ]);
+}
+
+async function applyExecutiveFilters() {
+    await refreshExecutiveDashboard();
+}
+
+async function clearExecutiveFilters() {
+    document.getElementById("facilityFilter").value = "";
+    document.getElementById("departmentFilter").value = "";
+
+    await refreshExecutiveDashboard();
+}
+
+async function loadExecutiveFilters() {
+    try {
+        const facilityResponse = await fetch("/api/executive-facilities");
+        const departmentResponse = await fetch("/api/executive-departments");
+
+        if (!facilityResponse.ok || !departmentResponse.ok) {
+            throw new Error("Unable to load filter options");
+        }
+
+        const facilities = await facilityResponse.json();
+        const departments = await departmentResponse.json();
+
+        const facilityFilter = document.getElementById("facilityFilter");
+        const departmentFilter = document.getElementById("departmentFilter");
+
+        facilities.forEach(facility => {
+            const option = document.createElement("option");
+            option.value = facility;
+            option.textContent = facility;
+            facilityFilter.appendChild(option);
+        });
+
+        departments.forEach(department => {
+            const option = document.createElement("option");
+            option.value = department;
+            option.textContent = department;
+            departmentFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error loading Executive filters:", error);
+    }
+
+    await refreshExecutiveDashboard();
+}
+
+function toggleLogout() {
+    const logoutButton = document.getElementById("logoutButton");
+
+    logoutButton.style.display =
+        logoutButton.style.display === "none"
+            ? "inline-block"
+            : "none";
+}
+
+function logout(event) {
+    event.stopPropagation();
+    window.location.href = "login.html";
+}
+
+loadExecutiveFilters();
+</script>
+</body>
+</html>
+
+
+  </body>
+</html>

@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Predictive Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .ai-chart-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .ai-chart-card,
+        .ai-insight-card,
+        .ai-model-card {
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .ai-chart-card canvas {
+            width: 100% !important;
+            height: 320px !important;
+        }
+
+        .ai-chart-description {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .ai-insight-card {
+            background: #eef2ff;
+        }
+
+        .ai-model-card {
+            margin-top: 25px;
+        }
+
+        .model-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 900px) {
+            .ai-chart-grid,
+            .model-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">🏥 Healthcare Intelligence</div>
+
+        <a href="executive.html" class="nav-item">📊 Executive Command Center</a>
+        <a href="patient-operations.html" class="nav-item">👥 Patient Operations</a>
+        <a href="doctor-staff.html" class="nav-item">🩺 Doctor & Staff Intelligence</a>
+        <a href="billing-revenue.html" class="nav-item">💰 Billing & Revenue Intelligence</a>
+        <a href="insurance-claims.html" class="nav-item">✍️ Insurance & Claims Automation</a>
+        <a href="ai-predictive.html" class="nav-item">🤖 AI & Predictive Intelligence</a>
+        <a href="workflow.html" class="nav-item">⚙️ Workflow Automation</a>
+        <a href="pharmacy-inventory.html" class="nav-item">💊 Pharmacy & Inventory</a>
+        <a href="patient-experience.html" class="nav-item">😊 Patient Experience</a>
+        <a href="financial-intelligence.html" class="nav-item">📈 Financial Intelligence</a>
+        <a href="ai-agent.html" class="nav-item">🤖 Healthcare AI Agent</a>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="header">
+            <h1>Medical Operations Intelligence Dashboard & Automation System</h1>
+        </div>
+
+        <div class="dashboard">
+            <h2>AI & Predictive Intelligence</h2>
+
+            <p class="subtitle">
+                Predictive analytics, demand forecasting and operational intelligence
+            </p>
+
+            <!-- KPI CARDS -->
+            <div class="cards ai-kpi-grid">
+
+                <div class="card ai-kpi-blue">
+                    <div class="card-title">Predicted Patient Demand</div>
+                    <div class="card-value" id="predictedDemandValue">Loading...</div>
+                </div>
+
+                <div class="card ai-kpi-green">
+                    <div class="card-title">Average Predicted Demand</div>
+                    <div class="card-value" id="averageDemandValue">Loading...</div>
+                </div>
+
+                <div class="card ai-kpi-purple">
+                    <div class="card-title">Forecast Period</div>
+                    <div class="card-value" id="forecastPeriodValue">Loading...</div>
+                </div>
+
+                <div class="card ai-kpi-orange">
+                    <div class="card-title">Prediction Model MAE</div>
+                    <div class="card-value" id="modelMAE">3.17</div>
+                </div>
+
+            </div>
+
+            <!-- PATIENT DEMAND FORECAST: ONLY ONE CHART -->
+            <div class="ai-chart-grid">
+
+                <div class="card ai-chart-card">
+                    <h3>Patient Demand Forecast</h3>
+
+                    <p class="ai-chart-description">
+                        Predicted daily appointment demand for the next 7 days
+                    </p>
+
+                    <canvas id="patientDemandChart"></canvas>
+                </div>
+
+                <div class="card ai-insight-card">
+                    <h3>AI Insight</h3>
+                    <div id="aiInsight">Generating insight...</div>
+                </div>
+
+            </div>
+
+            <!-- MODEL INFORMATION: ONLY ONCE -->
+            <div class="card ai-model-card">
+                <h3>Prediction Model</h3>
+
+                <div class="model-details">
+                    <div>
+                        <strong>Model:</strong>
+                        Random Forest Regression
+                    </div>
+
+                    <div>
+                        <strong>Input:</strong>
+                        Historical appointment volume
+                    </div>
+
+                    <div>
+                        <strong>Forecast:</strong>
+                        7 days
+                    </div>
+
+                    <div>
+                        <strong>MAE:</strong>
+                        3.17 appointments
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PATIENT DEMAND FORECAST API -->
+    <script>
+    async function loadPatientDemandForecast() {
+        try {
+            const response = await fetch("/api/patient-demand-forecast");
+
+            if (!response.ok) {
+                throw new Error("Forecast API returned " + response.status);
+            }
+
+            const data = await response.json();
+
+            console.log("Patient Demand Forecast:", data);
+
+            if (!Array.isArray(data) || data.length === 0) {
+                document.getElementById("predictedDemandValue").textContent = "No data";
+                document.getElementById("averageDemandValue").textContent = "No data";
+                document.getElementById("forecastPeriodValue").textContent = "0 Days";
+                document.getElementById("aiInsight").textContent =
+                    "No forecast data is currently available.";
+                return;
+            }
+
+            const predictions = data.map(item =>
+                Number(item.predicted_appointments)
+            );
+
+            const dates = data.map(item => item.date);
+
+            if (predictions.some(value => !Number.isFinite(value))) {
+                throw new Error("Forecast contains invalid prediction values.");
+            }
+
+            document.getElementById("predictedDemandValue").textContent =
+                predictions[0];
+
+            const average = predictions.reduce(
+                (sum, value) => sum + value, 0
+            ) / predictions.length;
+
+            document.getElementById("averageDemandValue").textContent =
+                Math.round(average);
+
+            document.getElementById("forecastPeriodValue").textContent =
+                data.length + " Days";
+
+            const maxDemand = Math.max(...predictions);
+            const minDemand = Math.min(...predictions);
+
+            document.getElementById("aiInsight").textContent =
+                "The model predicts patient appointment demand between "
+                + minDemand + " and " + maxDemand
+                + " appointments during the forecast period.";
+
+            const canvas = document.getElementById("patientDemandChart");
+
+            const existingChart = Chart.getChart(canvas);
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+                type: "line",
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: "Predicted Patient Demand",
+                        data: predictions,
+                        borderColor: "#3B82F6",
+                        backgroundColor: "rgba(59,130,246,0.15)",
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: "Predicted Appointments"
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: "Date"
+                            }
+                        }
+                    }
+                }
+            });
+
+        } catch (error) {
+            console.error("Unable to load patient demand forecast:", error);
+
+            document.getElementById("aiInsight").textContent =
+                "Unable to load the forecast. Please check the server and try again.";
+        }
+    }
+
+    loadPatientDemandForecast();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Operations</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+<div class="logo">
+        🏥 Healthcare Intelligence
+    </div>
+
+    <a href="executive.html" class="nav-item">
+    📊 Executive Command Center
+    </a>
+    <a href="patient-operations.html" class="nav-item">
+    👥 Patient Operations
+    </a>
+    <a href="doctor-staff.html" class="nav-item">
+    🩺 Doctor & Staff Intelligence
+    </a>
+    <a href="billing-revenue.html" class="nav-item">
+    💰 Billing & Revenue Intelligence
+    </a>
+    <a href="insurance-claims.html" class="nav-item">
+    ✍️ Insurance & Claims Automation
+    </a>
+    <a href="ai-predictive.html" class="nav-item">
+    🤖 AI & Predictive Intelligence
+    </a>
+    <a href="workflow.html" class="nav-item">
+    ⚙️ Workflow Automation
+    </a>
+    <a href="pharmacy-inventory.html" class="nav-item">
+    💊 Pharmacy & Inventory
+    </a>
+    <a href="patient-experience.html" class="nav-item">
+    😊 Patient Experience
+    </a>
+    <a href="financial-intelligence.html" class="nav-item">
+    📈 Financial Intelligence
+    </a>
+    <a href="ai-agent.html" class="nav-item">
+    🤖 Healthcare AI Agent
+    </a>
+    
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="header">
+
+            <h1>
+                Medical Operations Intelligence Dashboard & Automation System
+
+            </h1>
+
+            
+        </div>
+
+
+        <div class="dashboard">
+
+            <h2>
+                Patient Operations
+            </h2>
+
+
+            <p class="subtitle">
+                Patient flow, appointments, waiting time and capacity monitoring
+            </p>
+<div class="dashboard-filters">
+
+    <div class="filter-group">
+        <label for="patientFacilityFilter">
+            Facility
+        </label>
+
+        <select id="patientFacilityFilter">
+            <option value="">All Facilities</option>
+        </select>
+    </div>
+
+
+    <div class="filter-group">
+        <label for="patientDepartmentFilter">
+            Department
+        </label>
+
+        <select id="patientDepartmentFilter">
+            <option value="">All Departments</option>
+        </select>
+    </div>
+
+
+    
+
+    
+
+    <button
+    onclick="applyPatientFilters()"
+    onmousedown="this.style.transform='scale(0.90)';"
+    onmouseup="this.style.transform='scale(1)';"
+    onmouseleave="this.style.transform='scale(1)';"
+    style="
+        background:#2563eb;
+        color:white;
+        border:none;
+        padding:10px 22px;
+        border-radius:6px;
+        font-weight:600;
+        cursor:pointer;
+        transition:transform 0.15s ease;
+    ">
+    Apply Filters
+</button>
+<button
+    onclick="clearPatientFilters()"
+    onmousedown="this.style.transform='scale(0.90)';"
+    onmouseup="this.style.transform='scale(1)';"
+    onmouseleave="this.style.transform='scale(1)';"
+    style="
+        background:#6b7280;
+        color:white;
+        border:none;
+        padding:10px 22px;
+        border-radius:6px;
+        font-weight:600;
+        cursor:pointer;
+        transition:transform 0.15s ease;
+    ">
+    Clear
+</button>    
+</div>
+
+            <!-- KPI SECTION -->
+
+            <div class="patient-kpi-grid">
+
+                <!-- KPI 1 -->
+
+                <div class="patient-kpi-card patient-blue">
+
+                    <div class="patient-kpi-title">
+                        Total Appointments
+                    </div>
+
+                    <div class="patient-kpi-value"
+                         id="patientTotalAppointments">
+                        0
+                    </div>
+
+                    <div class="patient-kpi-target">
+                        Target: 500
+                    </div>
+
+                    <div class="patient-kpi-description">
+                        Total scheduled appointments
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 2 -->
+
+                <div class="patient-kpi-card patient-purple">
+
+                    <div class="patient-kpi-title">
+                        Appointment Completion
+                    </div>
+
+                    <div class="patient-kpi-value"
+                         id="patientAppointmentCompletion">
+                        0%
+                    </div>
+
+                    <div class="patient-kpi-target">
+                        Target: 90%
+                    </div>
+
+                    <div class="patient-kpi-description">
+                        Completed appointments
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 3 -->
+
+                <div class="patient-kpi-card patient-orange">
+
+                    <div class="patient-kpi-title">
+                        Average Waiting Time
+                    </div>
+
+                    <div class="patient-kpi-value"
+                         id="patientAverageWaiting">
+                        0 min
+                    </div>
+
+                    <div class="patient-kpi-target">
+                        Target: ≤ 30 min
+                    </div>
+
+                    <div class="patient-kpi-description">
+                        Average patient waiting time
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 4 -->
+
+                <div class="patient-kpi-card patient-green">
+
+                    <div class="patient-kpi-title">
+                        No-Show Rate
+                    </div>
+
+                    <div class="patient-kpi-value"
+                         id="patientNoShowRate">
+                        0%
+                    </div>
+
+                    <div class="patient-kpi-target">
+                        Target: ≤ 10%
+                    </div>
+
+                    <div class="patient-kpi-description">
+                        Appointments not attended
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART SECTION -->
+
+            <div class="patient-chart-section">
+
+                <h3>
+                    Patient Operations Intelligence
+                </h3>
+
+
+                <div class="patient-chart-grid">
+
+
+                    <!-- Chart 1 -->
+
+                    <div class="patient-chart-card">
+
+                        <h4>
+                            Patient Volume by Department
+                        </h4>
+
+                        <div class="patient-chart-container">
+
+                            <canvas id="patientOperationsVolumeChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Chart 2 -->
+
+                    <div class="patient-chart-card">
+
+                        <h4>
+                            Appointment Status
+                        </h4>
+
+                        <div class="patient-chart-container">
+
+                            <canvas id="appointmentStatusChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Chart 3 -->
+
+                    <div class="patient-chart-card">
+
+                        <h4>
+                            Average Waiting Time by Department
+                        </h4>
+
+                        <div class="patient-chart-container">
+
+                            <canvas id="waitingTimeDepartmentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Chart 4 -->
+
+                    <div class="patient-chart-card">
+
+                        <h4>
+                            Admissions Trend
+                        </h4>
+
+                        <div class="patient-chart-container">
+
+                            <canvas id="admissionsTrendChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Chart 5 -->
+
+                    <div class="patient-chart-card patient-full-chart">
+
+                        <h4>
+                            Bed Occupancy by Department
+                        </h4>
+
+                        <div class="patient-chart-container">
+
+                            <canvas id="patientBedOccupancyChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+
+        <!-- CHART JAVASCRIPT -->
+
+    <script>
+
+/* =====================================================
+   PATIENT OPERATIONS - FILTER VALUES
+===================================================== */
+
+function getPatientFilterParams() {
+
+    const facility =
+        document.getElementById(
+            "patientFacilityFilter"
+        ).value;
+
+    const department =
+        document.getElementById(
+            "patientDepartmentFilter"
+        ).value;
+
+    
+    
+    const params =
+        new URLSearchParams();
+
+    if (facility) {
+        params.append(
+            "facility",
+            facility
+        );
+    }
+
+    if (department) {
+        params.append(
+            "department",
+            department
+        );
+    }
+
+    
+    
+    return params;
+}
+
+
+/* =====================================================
+   KPI CARDS
+===================================================== */
+
+async function loadPatientKPIs() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-kpis?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load Patient Operations KPIs"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        document.getElementById(
+            "patientTotalAppointments"
+        ).textContent =
+            Number(
+                data.totalAppointments || 0
+            ).toLocaleString();
+
+        document.getElementById(
+            "patientAppointmentCompletion"
+        ).textContent =
+            Number(
+                data.appointmentCompletion || 0
+            ).toFixed(2) + "%";
+
+        document.getElementById(
+            "patientAverageWaiting"
+        ).textContent =
+            Number(
+                data.averageWaitingTime || 0
+            ).toFixed(2) + " min";
+
+        document.getElementById(
+            "patientNoShowRate"
+        ).textContent =
+            Number(
+                data.noShowRate || 0
+            ).toFixed(2) + "%";
+
+    }
+    catch (error) {
+
+        console.error(
+            "Patient Operations KPI error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   1. PATIENT VOLUME BY DEPARTMENT
+===================================================== */
+
+async function loadPatientVolumeChart() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-operations-volume?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load patient volume"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+        const canvas =
+            document.getElementById(
+                "patientOperationsVolumeChart"
+            );
+
+        if (!canvas) return;
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: departments,
+
+                    datasets: [{
+                        label:
+                            "Patient Volume",
+
+                        data:
+                            values,
+
+                        backgroundColor:
+                            "#3B82F6"
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Patient volume chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   2. APPOINTMENT STATUS
+===================================================== */
+
+async function loadAppointmentStatusChart() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-appointment-status?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load appointment status"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const statuses =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+        const canvas =
+            document.getElementById(
+                "appointmentStatusChart"
+            );
+
+        if (!canvas) return;
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "doughnut",
+
+                data: {
+                    labels: statuses,
+
+                    datasets: [{
+                        data: values,
+
+                        backgroundColor: [
+                            "#3B82F6",
+                            "#8B5CF6",
+                            "#F59E0B",
+                            "#16A34A",
+                            "#EF4444"
+                        ]
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Appointment status chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   3. AVERAGE WAITING TIME BY DEPARTMENT
+===================================================== */
+
+async function loadWaitingTimeDepartmentChart() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-waiting-department?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load waiting time"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+        const canvas =
+            document.getElementById(
+                "waitingTimeDepartmentChart"
+            );
+
+        if (!canvas) return;
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: departments,
+
+                    datasets: [{
+                        label:
+                            "Average Waiting Time (minutes)",
+
+                        data:
+                            values,
+
+                        backgroundColor:
+                            "#8B5CF6"
+                    }]
+                },
+
+                options: {
+                    indexAxis: "y",
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Waiting time chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   4. ADMISSIONS TREND
+===================================================== */
+
+async function loadAdmissionsTrendChart() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-admissions-trend?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load admissions trend"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const dates =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+        const canvas =
+            document.getElementById(
+                "admissionsTrendChart"
+            );
+
+        if (!canvas) return;
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "line",
+
+                data: {
+                    labels: dates,
+
+                    datasets: [{
+                        label:
+                            "Admissions",
+
+                        data:
+                            values,
+
+                        borderColor:
+                            "#16A34A",
+
+                        backgroundColor:
+                            "rgba(22,163,74,0.15)",
+
+                        fill: true,
+
+                        tension: 0.3
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    maintainAspectRatio: false
+                }
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Admissions trend chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   5. BED OCCUPANCY BY DEPARTMENT
+===================================================== */
+
+async function loadPatientBedOccupancyChart() {
+
+    const params =
+        getPatientFilterParams();
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/patient-bed-occupancy?${params.toString()}`
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Failed to load bed occupancy"
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+        const canvas =
+            document.getElementById(
+                "patientBedOccupancyChart"
+            );
+
+        if (!canvas) return;
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+        if (existingChart) {
+            existingChart.destroy();
+        }
+
+        new Chart(
+            canvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: departments,
+
+                    datasets: [{
+                        label:
+                            "Bed Occupancy (%)",
+
+                        data:
+                            values,
+
+                        backgroundColor:
+                            "#F59E0B"
+                    }]
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Bed occupancy chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   APPLY FILTERS
+===================================================== */
+
+</script>
+
+<!-- PATIENT FILTER DROPDOWN LOADER -->
+
+<script>
+
+async function loadPatientFilters() {
+
+    try {
+
+        const facilityResponse =
+            await fetch("/api/patient-facilities");
+
+        if (!facilityResponse.ok) {
+            throw new Error("Failed to load patient facilities");
+        }
+
+        const facilities =
+            await facilityResponse.json();
+
+        const facilityFilter =
+            document.getElementById("patientFacilityFilter");
+
+        facilities.forEach(function(facility) {
+
+            const option =
+                document.createElement("option");
+
+            option.value = facility;
+            option.textContent = facility;
+
+            facilityFilter.appendChild(option);
+
+        });
+
+
+        const departmentResponse =
+            await fetch("/api/patient-departments");
+
+        if (!departmentResponse.ok) {
+            throw new Error("Failed to load patient departments");
+        }
+
+        const departments =
+            await departmentResponse.json();
+
+        const departmentFilter =
+            document.getElementById("patientDepartmentFilter");
+
+        departments.forEach(function(department) {
+
+            const option =
+                document.createElement("option");
+
+            option.value = department;
+            option.textContent = department;
+
+            departmentFilter.appendChild(option);
+
+        });
+
+        console.log("Patient filters loaded successfully");
+
+    }
+    catch (error) {
+
+        console.error(
+            "Patient filter loading error:",
+            error
+        );
+
+    }
+}
+
+
+/* =====================================================
+   APPLY FILTERS
+===================================================== */
+
+async function applyPatientFilters() {
+
+    await Promise.all([
+
+        loadPatientKPIs(),
+
+        loadPatientVolumeChart(),
+
+        loadAppointmentStatusChart(),
+
+        loadWaitingTimeDepartmentChart(),
+
+        loadAdmissionsTrendChart(),
+
+        loadPatientBedOccupancyChart()
+
+    ]);
+
+}
+
+
+/* =====================================================
+   CLEAR FILTERS
+===================================================== */
+
+async function clearPatientFilters() {
+
+    document.getElementById(
+        "patientFacilityFilter"
+    ).value = "";
+
+    document.getElementById(
+        "patientDepartmentFilter"
+    ).value = "";
+
+    
+    
+
+    await Promise.all([
+
+        loadPatientKPIs(),
+
+        loadPatientVolumeChart(),
+
+        loadAppointmentStatusChart(),
+
+        loadWaitingTimeDepartmentChart(),
+
+        loadAdmissionsTrendChart(),
+
+        loadPatientBedOccupancyChart()
+
+    ]);
+
+}
+
+
+/* =====================================================
+   INITIAL PAGE LOAD
+===================================================== */
+
+async function loadPatientOperationsPage() {
+
+    try {
+
+        // First load dropdown values
+        await loadPatientFilters();
+
+        // Then immediately load KPIs and charts
+        await Promise.all([
+
+            loadPatientKPIs(),
+
+            loadPatientVolumeChart(),
+
+            loadAppointmentStatusChart(),
+
+            loadWaitingTimeDepartmentChart(),
+
+            loadAdmissionsTrendChart(),
+
+            loadPatientBedOccupancyChart()
+
+        ]);
+
+        console.log(
+            "Patient Operations dashboard loaded successfully"
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Patient Operations initial loading error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   START PAGE
+===================================================== */
+
+loadPatientOperationsPage();
+
+</script>
+</body>
+</html>

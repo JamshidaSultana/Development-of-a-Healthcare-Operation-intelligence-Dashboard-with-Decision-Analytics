@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Billing & Revenue Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+<div class="logo">
+        🏥 Healthcare Intelligence
+    </div>
+
+    <a href="executive.html" class="nav-item">
+    📊 Executive Command Center
+    </a>
+    <a href="patient-operations.html" class="nav-item">
+    👥 Patient Operations
+    </a>
+    <a href="doctor-staff.html" class="nav-item">
+    🩺 Doctor & Staff Intelligence
+    </a>
+    <a href="billing-revenue.html" class="nav-item">
+    💰 Billing & Revenue Intelligence
+    </a>
+    <a href="insurance-claims.html" class="nav-item">
+    ✍️ Insurance & Claims Automation
+    </a>
+    <a href="ai-predictive.html" class="nav-item">
+    🤖 AI & Predictive Intelligence
+    </a>
+    <a href="workflow.html" class="nav-item">
+    ⚙️ Workflow Automation
+    </a>
+    <a href="pharmacy-inventory.html" class="nav-item">
+    💊 Pharmacy & Inventory
+    </a>
+    <a href="patient-experience.html" class="nav-item">
+    😊 Patient Experience
+    </a>
+    <a href="financial-intelligence.html" class="nav-item">
+    📈 Financial Intelligence
+    </a>
+    <a href="ai-agent.html" class="nav-item">
+    🤖 Healthcare AI Agent
+    </a>
+    </div>
+
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+        <div class="header">
+
+            <h1>
+                Medical Operations Intelligence Dashboard & Automation System
+
+
+            </h1>
+
+                    </div>
+
+
+        <div class="dashboard">
+
+            <h2>
+                Billing & Revenue Intelligence
+            </h2>
+
+            <p class="subtitle">
+                Revenue performance, payments, outstanding balances and billing analysis
+            </p>
+        
+         <div class="dashboard-filters">
+
+    <div class="filter-group">
+
+        <label for="billingFacilityFilter">
+            Facility
+        </label>
+
+        <select id="billingFacilityFilter">
+
+            <option value="">
+                All Facilities
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="billingDepartmentFilter">
+            Department
+        </label>
+
+        <select id="billingDepartmentFilter">
+
+            <option value="">
+                All Departments
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <button
+        onclick="applyBillingFilters()"
+        onmousedown="this.style.transform='scale(0.90)';"
+        onmouseup="this.style.transform='scale(1)';"
+        onmouseleave="this.style.transform='scale(1)';"
+        style="
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:10px 22px;
+            border-radius:6px;
+            font-weight:600;
+            cursor:pointer;
+            transition:transform 0.15s ease;
+        ">
+        Apply Filters
+    </button>
+
+
+    <button
+        onclick="clearBillingFilters()"
+        onmousedown="this.style.transform='scale(0.90)';"
+        onmouseup="this.style.transform='scale(1)';"
+        onmouseleave="this.style.transform='scale(1)';"
+        style="
+            background:#6b7280;
+            color:white;
+            border:none;
+            padding:10px 22px;
+            border-radius:6px;
+            font-weight:600;
+            cursor:pointer;
+            transition:transform 0.15s ease;
+        ">
+        Clear
+    </button>
+
+</div>
+
+            <!-- KPI CARDS -->
+
+            <div class="billing-kpi-grid">
+
+
+                <!-- TOTAL REVENUE -->
+
+                <div class="billing-kpi-card billing-blue">
+
+                    <div class="billing-kpi-title">
+                        Total Revenue
+                    </div>
+
+                    <div
+                        class="billing-kpi-value"
+                        id="billingTotalRevenue">
+                        ₹0
+                    </div>
+
+                    <div class="billing-kpi-target">
+                        Revenue Overview
+                    </div>
+
+                    <div class="billing-kpi-description">
+                        Total invoice amount generated
+                    </div>
+
+                </div>
+
+
+                <!-- OUTSTANDING -->
+
+                <div class="billing-kpi-card billing-purple">
+
+                    <div class="billing-kpi-title">
+                        Outstanding Amount
+                    </div>
+
+                    <div
+                        class="billing-kpi-value"
+                        id="billingOutstanding">
+                        ₹0
+                    </div>
+
+                    <div class="billing-kpi-target">
+                        Receivables Monitoring
+                    </div>
+
+                    <div class="billing-kpi-description">
+                        Amount currently outstanding
+                    </div>
+
+                </div>
+
+
+                <!-- INSURANCE -->
+
+                <div class="billing-kpi-card billing-orange">
+
+                    <div class="billing-kpi-title">
+                        Insurance Amount
+                    </div>
+
+                    <div
+                        class="billing-kpi-value"
+                        id="billingInsurance">
+                        ₹0
+                    </div>
+
+                    <div class="billing-kpi-target">
+                        Insurance Contribution
+                    </div>
+
+                    <div class="billing-kpi-description">
+                        Amount covered through insurance
+                    </div>
+
+                </div>
+
+
+                <!-- PATIENT PAYMENT -->
+
+                <div class="billing-kpi-card billing-green">
+
+                    <div class="billing-kpi-title">
+                        Patient Payments
+                    </div>
+
+                    <div
+                        class="billing-kpi-value"
+                        id="billingPatientPayment">
+                        ₹0
+                    </div>
+
+                    <div class="billing-kpi-target">
+                        Collection Overview
+                    </div>
+
+                    <div class="billing-kpi-description">
+                        Payments received from patients
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHARTS -->
+
+            <div class="billing-chart-section">
+
+                <h3>
+                    Revenue Intelligence
+                </h3>
+
+
+                <div class="billing-chart-grid">
+
+
+                    <!-- CHART 1 -->
+
+                    <div class="billing-chart-card">
+
+                        <h4>
+                            Revenue by Department
+                        </h4>
+
+                        <div class="billing-chart-container">
+
+                            <canvas id="billingDepartmentRevenueChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 2 -->
+
+                    <div class="billing-chart-card">
+
+                        <h4>
+                            Revenue Trend
+                        </h4>
+
+                        <div class="billing-chart-container">
+
+                            <canvas id="billingRevenueTrendChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 3 -->
+
+                    <div class="billing-chart-card">
+
+                        <h4>
+                            Payment Status
+                        </h4>
+
+                        <div class="billing-chart-container">
+
+                            <canvas id="billingPaymentStatusChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 4 -->
+
+                    <div class="billing-chart-card">
+
+                        <h4>
+                            Outstanding Amount by Department
+                        </h4>
+
+                        <div class="billing-chart-container">
+
+                            <canvas id="billingOutstandingDepartmentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 5 -->
+
+                    <div class="billing-chart-card billing-full-chart">
+
+                        <h4>
+                            Payment Method Distribution
+                        </h4>
+
+                        <div class="billing-chart-container">
+
+                            <canvas id="billingPaymentMethodChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+    // =====================================================
+    // BILLING FILTERS
+    // =====================================================
+
+    async function loadBillingFilters() {
+
+        try {
+
+            const facilityResponse =
+                await fetch("/api/billing-facilities");
+
+            if (!facilityResponse.ok) {
+                throw new Error("Failed to load facilities");
+            }
+
+            const facilities =
+                await facilityResponse.json();
+
+            const facilityFilter =
+                document.getElementById(
+                    "billingFacilityFilter"
+                );
+
+            facilities.forEach(facility => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = facility;
+                option.textContent = facility;
+
+                facilityFilter.appendChild(option);
+
+            });
+
+
+            const departmentResponse =
+                await fetch("/api/billing-departments");
+
+            if (!departmentResponse.ok) {
+                throw new Error("Failed to load departments");
+            }
+
+            const departments =
+                await departmentResponse.json();
+
+            const departmentFilter =
+                document.getElementById(
+                    "billingDepartmentFilter"
+                );
+
+            departments.forEach(department => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = department;
+                option.textContent = department;
+
+                departmentFilter.appendChild(option);
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Billing filters loading error:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // GET SELECTED FILTERS
+    // =====================================================
+
+    function getBillingFilterParams() {
+
+        const facility =
+            document.getElementById(
+                "billingFacilityFilter"
+            ).value;
+
+        const department =
+            document.getElementById(
+                "billingDepartmentFilter"
+            ).value;
+
+        const params =
+            new URLSearchParams();
+
+        if (facility) {
+
+            params.append(
+                "facility",
+                facility
+            );
+
+        }
+
+        if (department) {
+
+            params.append(
+                "department",
+                department
+            );
+
+        }
+
+        return params;
+
+    }
+
+
+    // =====================================================
+    // KPI 1 - TOTAL REVENUE
+    // =====================================================
+
+    async function loadTotalRevenue() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-total-revenue?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            document.getElementById(
+                "billingTotalRevenue"
+            ).textContent =
+                "₹" +
+                Number(
+                    data.totalRevenue || 0
+                ).toLocaleString("en-IN");
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading total revenue:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // KPI 2 - OUTSTANDING
+    // =====================================================
+
+    async function loadOutstanding() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-outstanding?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            document.getElementById(
+                "billingOutstanding"
+            ).textContent =
+                "₹" +
+                Number(
+                    data.outstanding || 0
+                ).toLocaleString("en-IN");
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading outstanding:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // KPI 3 - INSURANCE
+    // =====================================================
+
+    async function loadInsuranceAmount() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-insurance?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            document.getElementById(
+                "billingInsurance"
+            ).textContent =
+                "₹" +
+                Number(
+                    data.insuranceAmount || 0
+                ).toLocaleString("en-IN");
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading insurance:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // KPI 4 - PATIENT PAYMENT
+    // =====================================================
+
+    async function loadPatientPayment() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-patient-payment?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            document.getElementById(
+                "billingPatientPayment"
+            ).textContent =
+                "₹" +
+                Number(
+                    data.patientPayment || 0
+                ).toLocaleString("en-IN");
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading patient payments:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHART 1 - REVENUE BY DEPARTMENT
+    // =====================================================
+
+    async function loadDepartmentRevenue() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-department-revenue?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            const departments =
+                Object.keys(data);
+
+            const values =
+                Object.values(data);
+
+            const canvas =
+                document.getElementById(
+                    "billingDepartmentRevenueChart"
+                );
+
+            const existingChart =
+                Chart.getChart(canvas);
+
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+
+                type: "bar",
+
+                data: {
+
+                    labels: departments,
+
+                    datasets: [{
+
+                        label: "Revenue",
+
+                        data: values,
+
+                        backgroundColor: "#3B82F6"
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading department revenue:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHART 2 - REVENUE TREND
+    // =====================================================
+
+    async function loadRevenueTrend() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-revenue-trend?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            const dates =
+                Object.keys(data);
+
+            const values =
+                Object.values(data);
+
+            const canvas =
+                document.getElementById(
+                    "billingRevenueTrendChart"
+                );
+
+            const existingChart =
+                Chart.getChart(canvas);
+
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+
+                type: "line",
+
+                data: {
+
+                    labels: dates,
+
+                    datasets: [{
+
+                        label: "Revenue",
+
+                        data: values,
+
+                        borderColor: "#16A34A",
+
+                        backgroundColor:
+                            "rgba(22,163,74,0.15)",
+
+                        fill: true,
+
+                        tension: 0.3
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading revenue trend:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHART 3 - PAYMENT STATUS
+    // =====================================================
+
+    async function loadPaymentStatus() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-payment-status?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            const statuses =
+                Object.keys(data);
+
+            const values =
+                Object.values(data);
+
+            const canvas =
+                document.getElementById(
+                    "billingPaymentStatusChart"
+                );
+
+            const existingChart =
+                Chart.getChart(canvas);
+
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels: statuses,
+
+                    datasets: [{
+
+                        data: values,
+
+                        backgroundColor: [
+
+                            "#16A34A",
+                            "#F59E0B",
+                            "#EF4444",
+                            "#3B82F6",
+                            "#8B5CF6"
+
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading payment status:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHART 4 - OUTSTANDING BY DEPARTMENT
+    // =====================================================
+
+    async function loadOutstandingDepartment() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-outstanding-department?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            const departments =
+                Object.keys(data);
+
+            const values =
+                Object.values(data);
+
+            const canvas =
+                document.getElementById(
+                    "billingOutstandingDepartmentChart"
+                );
+
+            const existingChart =
+                Chart.getChart(canvas);
+
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+
+                type: "bar",
+
+                data: {
+
+                    labels: departments,
+
+                    datasets: [{
+
+                        label: "Outstanding Amount",
+
+                        data: values,
+
+                        backgroundColor: "#8B5CF6"
+
+                    }]
+
+                },
+
+                options: {
+
+                    indexAxis: "y",
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading outstanding department:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // CHART 5 - PAYMENT METHOD
+    // =====================================================
+
+    async function loadPaymentMethod() {
+
+        try {
+
+            const params =
+                getBillingFilterParams();
+
+            const response =
+                await fetch(
+                    `/api/billing-payment-method?${params.toString()}`
+                );
+
+            const data =
+                await response.json();
+
+            const methods =
+                Object.keys(data);
+
+            const values =
+                Object.values(data);
+
+            const canvas =
+                document.getElementById(
+                    "billingPaymentMethodChart"
+                );
+
+            const existingChart =
+                Chart.getChart(canvas);
+
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(canvas, {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels: methods,
+
+                    datasets: [{
+
+                        data: values,
+
+                        backgroundColor: [
+
+                            "#3B82F6",
+                            "#8B5CF6",
+                            "#F59E0B",
+                            "#16A34A",
+                            "#EF4444"
+
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false
+
+                }
+
+            });
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error loading payment method:",
+                error
+            );
+
+        }
+
+    }
+
+
+    // =====================================================
+    // APPLY FILTERS
+    // =====================================================
+
+    async function applyBillingFilters() {
+
+        await loadTotalRevenue();
+
+        await loadOutstanding();
+
+        await loadInsuranceAmount();
+
+        await loadPatientPayment();
+
+        await loadDepartmentRevenue();
+
+        await loadRevenueTrend();
+
+        await loadPaymentStatus();
+
+        await loadOutstandingDepartment();
+
+        await loadPaymentMethod();
+
+    }
+
+
+    // =====================================================
+    // CLEAR FILTERS
+    // =====================================================
+
+    async function clearBillingFilters() {
+
+        document.getElementById(
+            "billingFacilityFilter"
+        ).value = "";
+
+        document.getElementById(
+            "billingDepartmentFilter"
+        ).value = "";
+
+        await applyBillingFilters();
+
+    }
+
+
+    // =====================================================
+    // INITIAL PAGE LOAD
+    // =====================================================
+
+    async function loadBillingPage() {
+
+        await loadBillingFilters();
+
+        await applyBillingFilters();
+
+    }
+
+    loadBillingPage();
+
+</script>
+    </body>
+
+</html>

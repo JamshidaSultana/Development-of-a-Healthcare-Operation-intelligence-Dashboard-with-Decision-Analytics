@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pharmacy & Inventory Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="/node_modules/chart.js/dist/chart.umd.min.js"></script>
+
+    <style>
+        .pharmacy-chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .pharmacy-chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            height: 360px;
+        }
+
+        .pharmacy-chart-card h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .pharmacy-chart-container {
+            position: relative;
+            height: 285px;
+            width: 100%;
+        }
+
+        .pharmacy-chart-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        @media (max-width: 900px) {
+            .pharmacy-chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        🏥 Healthcare Intelligence
+    </div>
+
+    <a href="executive.html" class="nav-item">
+        📊 Executive Command Center
+    </a>
+
+    <a href="patient-operations.html" class="nav-item">
+        👥 Patient Operations
+    </a>
+
+    <a href="doctor-staff.html" class="nav-item">
+        🩺 Doctor & Staff Intelligence
+    </a>
+
+    <a href="billing-revenue.html" class="nav-item">
+        💰 Billing & Revenue Intelligence
+    </a>
+
+    <a href="insurance-claims.html" class="nav-item">
+        ✍️ Insurance & Claims Automation
+    </a>
+
+    <a href="ai-predictive.html" class="nav-item">
+        🤖 AI & Predictive Intelligence
+    </a>
+
+    <a href="workflow.html" class="nav-item">
+        ⚙️ Workflow Automation
+    </a>
+
+    <a href="pharmacy-inventory.html" class="nav-item">
+        💊 Pharmacy & Inventory
+    </a>
+
+    <a href="patient-experience.html" class="nav-item">
+        😊 Patient Experience
+    </a>
+
+    <a href="financial-intelligence.html" class="nav-item">
+        📈 Financial Intelligence
+    </a>
+
+    <a href="ai-agent.html" class="nav-item">
+        🤖 Healthcare AI Agent
+    </a>
+
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>
+            Medical Operations Intelligence Dashboard & Automation System
+        </h1>
+    </div>
+
+    <div class="dashboard">
+
+        <h2>Pharmacy & Inventory Overview</h2>
+
+        <p class="subtitle">
+            Monitor medicine stock, inventory value and low-stock conditions.
+        </p>
+
+        <!-- PHARMACY FILTERS -->
+
+        <div class="filter-bar">
+
+    <select id="pharmacyDepartmentFilter">
+        <option value="">
+            All Departments
+        </option>
+    </select>
+
+   <button class="filter-button" onclick="applyPharmacyFilters()">
+    Apply Filters
+</button>
+    <button class="clear-button" onclick="clearPharmacyFilters()">
+     Clear
+</button>
+</div>
+        <!-- KPI CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-title">
+                    Total Medicines
+                </div>
+
+                <div class="card-value" id="totalMedicines">
+                    Loading...
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    Total Stock Quantity
+                </div>
+
+                <div class="card-value" id="totalStockQuantity">
+                    Loading...
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    Low Stock Medicines
+                </div>
+
+                <div class="card-value" id="lowStockMedicines">
+                    Loading...
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    Total Inventory Value
+                </div>
+
+                <div class="card-value" id="totalInventoryValue">
+                    Loading...
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CHARTS -->
+
+        <div class="pharmacy-chart-grid">
+
+            <div class="pharmacy-chart-card">
+
+                <h3>
+                    Stock Quantity by Medicine Category
+                </h3>
+
+                <div class="pharmacy-chart-container">
+                    <canvas id="categoryStockChart"></canvas>
+                </div>
+
+            </div>
+
+            <div class="pharmacy-chart-card">
+
+                <h3>
+                    Inventory Value by Category
+                </h3>
+
+                <div class="pharmacy-chart-container">
+                    <canvas id="categoryValueChart"></canvas>
+                </div>
+
+            </div>
+
+            <div class="pharmacy-chart-card">
+
+                <h3>
+                    Stock Quantity by Department
+                </h3>
+
+                <div class="pharmacy-chart-container">
+                    <canvas id="departmentStockChart"></canvas>
+                </div>
+
+            </div>
+
+            <div class="pharmacy-chart-card">
+
+                <h3>
+                    Top Medicines by Stock Quantity
+                </h3>
+
+                <div class="pharmacy-chart-container">
+                    <canvas id="topMedicineChart"></canvas>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let categoryStockChart;
+let categoryValueChart;
+let departmentStockChart;
+let topMedicineChart;
+
+
+// ==========================================
+// PHARMACY FILTER PARAMETERS
+// ==========================================
+
+function getPharmacyFilterParams() {
+
+    const params = new URLSearchParams();
+
+    const departmentElement =
+        document.getElementById("pharmacyDepartmentFilter");
+
+    if (
+        departmentElement &&
+        departmentElement.value
+    ) {
+
+        params.append(
+            "department",
+            departmentElement.value
+        );
+
+    }
+
+    return params;
+}
+// ==========================================
+// LOAD FACILITY & DEPARTMENT FILTERS
+// ==========================================
+
+async function loadPharmacyFilters() {
+
+    try {
+
+        const response =
+            await fetch("/api/pharmacy-departments");
+
+        const departments =
+            await response.json();
+
+        const departmentSelect =
+            document.getElementById(
+                "pharmacyDepartmentFilter"
+            );
+
+        if (
+            departmentSelect &&
+            Array.isArray(departments)
+        ) {
+
+            departmentSelect.innerHTML =
+                '<option value="">All Departments</option>';
+
+            departments.forEach(
+                department => {
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value =
+                        department;
+
+                    option.textContent =
+                        department;
+
+                    departmentSelect.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Pharmacy department filter error:",
+            error
+        );
+
+    }
+
+}
+// ==========================================
+// PHARMACY KPIs
+// ==========================================
+
+async function loadPharmacyKPIs() {
+
+    try {
+
+        const params =
+            getPharmacyFilterParams();
+
+        const response =
+            await fetch(
+                `/api/pharmacy-kpis?${params.toString()}`
+            );
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "totalMedicines"
+        ).textContent =
+            Number(
+                data.totalMedicines || 0
+            ).toLocaleString(
+                "en-IN"
+            );
+
+
+        document.getElementById(
+            "totalStockQuantity"
+        ).textContent =
+            Number(
+                data.totalStockQuantity || 0
+            ).toLocaleString(
+                "en-IN"
+            );
+
+
+        document.getElementById(
+            "lowStockMedicines"
+        ).textContent =
+            Number(
+                data.lowStockMedicines || 0
+            ).toLocaleString(
+                "en-IN"
+            );
+
+
+        document.getElementById(
+            "totalInventoryValue"
+        ).textContent =
+            "₹" +
+            Number(
+                data.totalInventoryValue || 0
+            ).toLocaleString(
+                "en-IN",
+                {
+                    maximumFractionDigits: 0
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Pharmacy KPI error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// 1. STOCK QUANTITY BY MEDICINE CATEGORY
+// ==========================================
+
+async function loadCategoryStockChart() {
+
+    try {
+
+        const params =
+            getPharmacyFilterParams();
+
+        const response =
+            await fetch(
+                `/api/pharmacy-category-stock?${params.toString()}`
+            );
+
+        const data =
+            await response.json();
+
+
+        const labels =
+            data.map(
+                item => item.category
+            );
+
+        const values =
+            data.map(
+                item => item.quantity
+            );
+
+
+        if (categoryStockChart) {
+
+            categoryStockChart.destroy();
+
+        }
+
+
+        categoryStockChart =
+            new Chart(
+                document.getElementById(
+                    "categoryStockChart"
+                ),
+                {
+
+                    type: "bar",
+
+                    data: {
+
+                        labels: labels,
+
+                        datasets: [{
+
+                            label:
+                                "Stock Quantity",
+
+                            data:
+                                values,
+
+                            backgroundColor:
+                                "#3B82F6",
+
+                            borderRadius:
+                                6
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        responsive: true,
+
+                        maintainAspectRatio:
+                            false,
+
+                        plugins: {
+
+                            legend: {
+
+                                display: false
+
+                            }
+
+                        },
+
+                        scales: {
+
+                            y: {
+
+                                beginAtZero:
+                                    true
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Category stock chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// 2. INVENTORY VALUE BY CATEGORY
+// ==========================================
+
+async function loadCategoryValueChart() {
+
+    try {
+
+        const params =
+            getPharmacyFilterParams();
+
+        const response =
+            await fetch(
+                `/api/pharmacy-category-value?${params.toString()}`
+            );
+
+        const data =
+            await response.json();
+
+
+        const labels =
+            data.map(
+                item => item.category
+            );
+
+        const values =
+            data.map(
+                item => item.value
+            );
+
+
+        if (categoryValueChart) {
+
+            categoryValueChart.destroy();
+
+        }
+
+
+        categoryValueChart =
+            new Chart(
+                document.getElementById(
+                    "categoryValueChart"
+                ),
+                {
+
+                    type: "bar",
+
+                    data: {
+
+                        labels: labels,
+
+                        datasets: [{
+
+                            label:
+                                "Inventory Value",
+
+                            data:
+                                values,
+
+                            backgroundColor:
+                                "#16A34A",
+
+                            borderRadius:
+                                6
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        responsive: true,
+
+                        maintainAspectRatio:
+                            false,
+
+                        plugins: {
+
+                            legend: {
+
+                                display: false
+
+                            }
+
+                        },
+
+                        scales: {
+
+                            y: {
+
+                                beginAtZero:
+                                    true,
+
+                                ticks: {
+
+                                    callback:
+                                        function(value) {
+
+                                            return "₹" +
+                                                Number(
+                                                    value
+                                                ).toLocaleString(
+                                                    "en-IN"
+                                                );
+
+                                        }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Category value chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// 3. STOCK QUANTITY BY DEPARTMENT
+// ==========================================
+
+async function loadDepartmentStockChart() {
+
+    try {
+
+        const params =
+            getPharmacyFilterParams();
+
+        const response =
+            await fetch(
+                `/api/pharmacy-department-stock?${params.toString()}`
+            );
+
+        const data =
+            await response.json();
+
+
+        const labels =
+            data.map(
+                item => item.department
+            );
+
+        const values =
+            data.map(
+                item => item.quantity
+            );
+
+
+        if (departmentStockChart) {
+
+            departmentStockChart.destroy();
+
+        }
+
+
+        departmentStockChart =
+            new Chart(
+                document.getElementById(
+                    "departmentStockChart"
+                ),
+                {
+
+                    type: "bar",
+
+                    data: {
+
+                        labels: labels,
+
+                        datasets: [{
+
+                            label:
+                                "Stock Quantity",
+
+                            data:
+                                values,
+
+                            backgroundColor:
+                                "#8B5CF6",
+
+                            borderRadius:
+                                6
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        indexAxis:
+                            "y",
+
+                        responsive:
+                            true,
+
+                        maintainAspectRatio:
+                            false,
+
+                        plugins: {
+
+                            legend: {
+
+                                display:
+                                    false
+
+                            }
+
+                        },
+
+                        scales: {
+
+                            x: {
+
+                                beginAtZero:
+                                    true
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Department stock chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// 4. TOP MEDICINES BY STOCK QUANTITY
+// ==========================================
+
+async function loadTopMedicineChart() {
+
+    try {
+
+        const params =
+            getPharmacyFilterParams();
+
+        const response =
+            await fetch(
+                `/api/pharmacy-top-medicines?${params.toString()}`
+            );
+
+        const data =
+            await response.json();
+
+
+        const labels =
+            data.map(
+                item => item.medicine
+            );
+
+        const values =
+            data.map(
+                item => item.quantity
+            );
+
+
+        if (topMedicineChart) {
+
+            topMedicineChart.destroy();
+
+        }
+
+
+        topMedicineChart =
+            new Chart(
+                document.getElementById(
+                    "topMedicineChart"
+                ),
+                {
+
+                    type: "bar",
+
+                    data: {
+
+                        labels: labels,
+
+                        datasets: [{
+
+                            label:
+                                "Stock Quantity",
+
+                            data:
+                                values,
+
+                            backgroundColor:
+                                "#F59E0B",
+
+                            borderRadius:
+                                6
+
+                        }]
+
+                    },
+
+                    options: {
+
+                        indexAxis:
+                            "y",
+
+                        responsive:
+                            true,
+
+                        maintainAspectRatio:
+                            false,
+
+                        plugins: {
+
+                            legend: {
+
+                                display:
+                                    false
+
+                            }
+
+                        },
+
+                        scales: {
+
+                            x: {
+
+                                beginAtZero:
+                                    true
+
+                            }
+
+                        }
+
+                    }
+
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Top medicine chart error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// APPLY FILTERS
+// ==========================================
+
+async function applyPharmacyFilters() {
+
+    await loadPharmacyKPIs();
+
+    await loadCategoryStockChart();
+
+    await loadCategoryValueChart();
+
+    await loadDepartmentStockChart();
+
+    await loadTopMedicineChart();
+
+}
+
+
+// ==========================================
+// CLEAR FILTERS
+// ==========================================
+
+async function clearPharmacyFilters() {
+
+    const departmentSelect =
+        document.getElementById(
+            "pharmacyDepartmentFilter"
+        );
+
+    if (departmentSelect) {
+
+        departmentSelect.value = "";
+
+    }
+
+    await applyPharmacyFilters();
+
+}
+// ==========================================
+// INITIAL PAGE LOAD
+// ==========================================
+
+async function loadPharmacyPage() {
+
+    await loadPharmacyFilters();
+
+    await applyPharmacyFilters();
+
+}
+
+
+loadPharmacyPage();
+
+</script>
+
+</body>
+</html>

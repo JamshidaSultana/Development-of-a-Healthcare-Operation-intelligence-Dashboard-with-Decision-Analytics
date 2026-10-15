@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor & Staff Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+        🏥 Healthcare Intelligence
+    </div>
+
+    <a href="executive.html" class="nav-item">
+    📊 Executive Command Center
+    </a>
+    <a href="patient-operations.html" class="nav-item">
+    👥 Patient Operations
+    </a>
+    <a href="doctor-staff.html" class="nav-item">
+    🩺 Doctor & Staff Intelligence
+    </a>
+    <a href="billing-revenue.html" class="nav-item">
+    💰 Billing & Revenue Intelligence
+    </a>
+    <a href="insurance-claims.html" class="nav-item">
+    ✍️ Insurance & Claims Automation
+    </a>
+    <a href="ai-predictive.html" class="nav-item">
+    🤖 AI & Predictive Intelligence
+    </a>
+    <a href="workflow.html" class="nav-item">
+    ⚙️ Workflow Automation
+    </a>
+    <a href="pharmacy-inventory.html" class="nav-item">
+    💊 Pharmacy & Inventory
+    </a>
+    <a href="patient-experience.html" class="nav-item">
+    😊 Patient Experience
+    </a>
+    <a href="financial-intelligence.html" class="nav-item">
+    📈 Financial Intelligence
+    </a>
+    <a href="ai-agent.html" class="nav-item">
+    🤖 Healthcare AI Agent
+    </a>
+    
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main">
+
+        <div class="header">
+
+            <h1>
+                Medical Operations Intelligence Dashboard & Automation System
+
+            </h1>
+
+        </div>
+
+
+        <div class="dashboard">
+
+            <h2>
+                Doctor & Staff Intelligence
+            </h2>
+
+            <p class="subtitle">
+                Workforce capacity, doctor performance and staff utilization monitoring
+            </p>
+<!-- DOCTOR & STAFF FILTERS -->
+
+<div class="dashboard-filters">
+
+    <div class="filter-group">
+
+        <label for="doctorStaffFacilityFilter">
+            Facility
+        </label>
+
+        <select id="doctorStaffFacilityFilter">
+
+            <option value="">
+                All Facilities
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="filter-group">
+
+        <label for="doctorStaffDepartmentFilter">
+            Department
+        </label>
+
+        <select id="doctorStaffDepartmentFilter">
+
+            <option value="">
+                All Departments
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <button
+        onclick="applyDoctorStaffFilters()"
+        onmousedown="this.style.transform='scale(0.90)';"
+        onmouseup="this.style.transform='scale(1)';"
+        onmouseleave="this.style.transform='scale(1)';"
+        style="
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:10px 22px;
+            border-radius:6px;
+            font-weight:600;
+            cursor:pointer;
+            transition:transform 0.15s ease;
+        ">
+        Apply Filters
+    </button>
+
+
+    <button
+        onclick="clearDoctorStaffFilters()"
+        onmousedown="this.style.transform='scale(0.90)';"
+        onmouseup="this.style.transform='scale(1)';"
+        onmouseleave="this.style.transform='scale(1)';"
+        style="
+            background:#6b7280;
+            color:white;
+            border:none;
+            padding:10px 22px;
+            border-radius:6px;
+            font-weight:600;
+            cursor:pointer;
+            transition:transform 0.15s ease;
+        ">
+        Clear
+    </button>
+
+</div>
+
+
+           
+ <!-- KPI SECTION -->
+
+            <div class="doctor-kpi-grid">
+
+
+                <!-- KPI 1 -->
+
+                <div class="doctor-kpi-card doctor-blue">
+
+                    <div class="doctor-kpi-title">
+                        Total Doctors
+                    </div>
+
+                    <div
+                        class="doctor-kpi-value"
+                        id="totalDoctorsValue">
+                        0
+                    </div>
+
+                    <div class="doctor-kpi-target">
+                        Workforce Overview
+                    </div>
+
+                    <div class="doctor-kpi-description">
+                        Active doctors across facilities
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 2 -->
+
+                <div class="doctor-kpi-card doctor-purple">
+
+                    <div class="doctor-kpi-title">
+                        Total Staff
+                    </div>
+
+                    <div
+                        class="doctor-kpi-value"
+                        id="totalStaffValue">
+                        0
+                    </div>
+
+                    <div class="doctor-kpi-target">
+                        Workforce Overview
+                    </div>
+
+                    <div class="doctor-kpi-description">
+                        Healthcare staff across departments
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 3 -->
+
+                <div class="doctor-kpi-card doctor-orange">
+
+                    <div class="doctor-kpi-title">
+                        Average Doctor Experience
+                    </div>
+
+                    <div
+                        class="doctor-kpi-value"
+                        id="averageDoctorExperience">
+                        0 years
+                    </div>
+
+                    <div class="doctor-kpi-target">
+                        Experience Profile
+                    </div>
+
+                    <div class="doctor-kpi-description">
+                        Average professional experience
+                    </div>
+
+                </div>
+
+
+                <!-- KPI 4 -->
+
+                <div class="doctor-kpi-card doctor-green">
+
+                    <div class="doctor-kpi-title">
+                        Doctor Attendance Rate
+                    </div>
+
+                    <div
+                        class="doctor-kpi-value"
+                        id="doctorAttendanceValue">
+                        0%
+                    </div>
+
+                    <div class="doctor-kpi-target">
+                        Workforce Availability
+                    </div>
+
+                    <div class="doctor-kpi-description">
+                        Attendance based on recorded staff shifts
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART SECTION -->
+
+            <div class="doctor-chart-section">
+
+                <h3>
+                    Workforce Intelligence
+                </h3>
+
+
+                <div class="doctor-chart-grid">
+
+
+                    <!-- CHART 1 -->
+
+                    <div class="doctor-chart-card">
+
+                        <h4>
+                            Doctors by Department
+                        </h4>
+
+                        <div class="doctor-chart-container">
+
+                            <canvas id="doctorsDepartmentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 2 -->
+
+                    <div class="doctor-chart-card">
+
+                        <h4>
+                            Staff by Department
+                        </h4>
+
+                        <div class="doctor-chart-container">
+
+                            <canvas id="staffDepartmentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 3 -->
+
+                    <div class="doctor-chart-card">
+
+                        <h4>
+                            Doctor Experience Distribution
+                        </h4>
+
+                        <div class="doctor-chart-container">
+
+                            <canvas id="doctorExperienceChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 4 -->
+
+                    <div class="doctor-chart-card">
+
+                        <h4>
+                            Attendance Status
+                        </h4>
+
+                        <div class="doctor-chart-container">
+
+                            <canvas id="attendanceStatusChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CHART 5 -->
+
+                    <div class="doctor-chart-card doctor-full-chart">
+
+                        <h4>
+                            Working Hours by Department
+                        </h4>
+
+                        <div class="doctor-chart-container">
+
+                            <canvas id="workingHoursDepartmentChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DOCTOR & STAFF INTELLIGENCE JAVASCRIPT -->
+
+<script>
+
+
+// =====================================================
+// LOAD FILTER OPTIONS
+// =====================================================
+
+async function loadDoctorStaffFilters() {
+
+    try {
+
+        const facilityResponse =
+            await fetch(
+                "/api/doctor-staff-facilities"
+            );
+
+        const departmentResponse =
+            await fetch(
+                "/api/doctor-staff-departments"
+            );
+
+
+        if (!facilityResponse.ok ||
+            !departmentResponse.ok) {
+
+            throw new Error(
+                "Failed to load filter options"
+            );
+
+        }
+
+
+        const facilities =
+            await facilityResponse.json();
+
+        const departments =
+            await departmentResponse.json();
+
+
+        const facilityFilter =
+            document.getElementById(
+                "doctorStaffFacilityFilter"
+            );
+
+        const departmentFilter =
+            document.getElementById(
+                "doctorStaffDepartmentFilter"
+            );
+
+
+        facilities.forEach(facility => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                facility;
+
+            option.textContent =
+                facility;
+
+            facilityFilter.appendChild(
+                option
+            );
+
+        });
+
+
+        departments.forEach(department => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                department;
+
+            option.textContent =
+                department;
+
+            departmentFilter.appendChild(
+                option
+            );
+
+        });
+
+    }
+    catch (error) {
+
+        console.error(
+            "Doctor Staff filters loading error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// GET CURRENT FILTERS
+// =====================================================
+
+function getDoctorStaffFilterParams() {
+
+    const facility =
+        document.getElementById(
+            "doctorStaffFacilityFilter"
+        ).value;
+
+
+    const department =
+        document.getElementById(
+            "doctorStaffDepartmentFilter"
+        ).value;
+
+
+    const params =
+        new URLSearchParams();
+
+
+    if (facility) {
+
+        params.append(
+            "facility",
+            facility
+        );
+
+    }
+
+
+    if (department) {
+
+        params.append(
+            "department",
+            department
+        );
+
+    }
+
+
+    return params;
+}
+
+
+
+// =====================================================
+// LOAD TOTAL DOCTORS
+// =====================================================
+
+async function loadTotalDoctors() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/doctor-total?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "totalDoctorsValue"
+        ).textContent =
+            Number(
+                data.totalDoctors || 0
+            ).toLocaleString();
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error loading total doctors:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD TOTAL STAFF
+// =====================================================
+
+async function loadTotalStaff() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/staff-total?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "totalStaffValue"
+        ).textContent =
+            Number(
+                data.totalStaff || 0
+            ).toLocaleString();
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error loading total staff:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD AVERAGE DOCTOR EXPERIENCE
+// =====================================================
+
+async function loadAverageDoctorExperience() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/doctor-average-experience?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "averageDoctorExperience"
+        ).textContent =
+            Number(
+                data.averageExperience || 0
+            ) + " years";
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error loading doctor experience:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD DOCTOR ATTENDANCE
+// =====================================================
+
+async function loadDoctorAttendance() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/staff-attendance?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "doctorAttendanceValue"
+        ).textContent =
+            Number(
+                data.attendanceRate || 0
+            ) + "%";
+
+
+    }
+    catch (error) {
+
+        console.error(
+            "Error loading staff attendance:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD DOCTORS BY DEPARTMENT
+// =====================================================
+
+async function loadDoctorsByDepartment() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/doctors-by-department?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+
+        const canvas =
+            document.getElementById(
+                "doctorsDepartmentChart"
+            );
+
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+
+        if (existingChart) {
+
+            existingChart.destroy();
+
+        }
+
+
+        new Chart(
+            canvas,
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels:
+                        departments,
+
+                    datasets: [{
+
+                        label:
+                            "Doctors",
+
+                        data:
+                            values,
+
+                        backgroundColor:
+                            "#3B82F6"
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive:
+                        true,
+
+                    maintainAspectRatio:
+                        false
+
+                }
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Doctors by department error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD STAFF BY DEPARTMENT
+// =====================================================
+
+async function loadStaffByDepartment() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/staff-by-department?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+
+        const canvas =
+            document.getElementById(
+                "staffDepartmentChart"
+            );
+
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+
+        if (existingChart) {
+
+            existingChart.destroy();
+
+        }
+
+
+        new Chart(
+            canvas,
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels:
+                        departments,
+
+                    datasets: [{
+
+                        label:
+                            "Staff",
+
+                        data:
+                            values,
+
+                        backgroundColor:
+                            "#8B5CF6"
+
+                    }]
+
+                },
+
+                options: {
+
+                    indexAxis:
+                        "y",
+
+                    responsive:
+                        true,
+
+                    maintainAspectRatio:
+                        false
+
+                }
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Staff by department error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD DOCTOR EXPERIENCE
+// =====================================================
+
+async function loadDoctorExperience() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/doctor-experience?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        const categories =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+
+        const canvas =
+            document.getElementById(
+                "doctorExperienceChart"
+            );
+
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+
+        if (existingChart) {
+
+            existingChart.destroy();
+
+        }
+
+
+        new Chart(
+            canvas,
+            {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels:
+                        categories,
+
+                    datasets: [{
+
+                        data:
+                            values,
+
+                        backgroundColor: [
+
+                            "#3B82F6",
+                            "#8B5CF6",
+                            "#F59E0B",
+                            "#16A34A",
+                            "#EF4444"
+
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive:
+                        true,
+
+                    maintainAspectRatio:
+                        false
+
+                }
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Doctor experience error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD ATTENDANCE STATUS
+// =====================================================
+
+async function loadAttendanceStatus() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/attendance-status?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        const statuses =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+
+        const canvas =
+            document.getElementById(
+                "attendanceStatusChart"
+            );
+
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+
+        if (existingChart) {
+
+            existingChart.destroy();
+
+        }
+
+
+        new Chart(
+            canvas,
+            {
+
+                type: "doughnut",
+
+                data: {
+
+                    labels:
+                        statuses,
+
+                    datasets: [{
+
+                        data:
+                            values,
+
+                        backgroundColor: [
+
+                            "#16A34A",
+                            "#EF4444",
+                            "#F59E0B",
+                            "#3B82F6"
+
+                        ]
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive:
+                        true,
+
+                    maintainAspectRatio:
+                        false
+
+                }
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Attendance status error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// LOAD WORKING HOURS
+// =====================================================
+
+async function loadWorkingHoursDepartment() {
+
+    const params =
+        getDoctorStaffFilterParams();
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/working-hours-department?${params.toString()}`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        const departments =
+            Object.keys(data);
+
+        const values =
+            Object.values(data);
+
+
+        const canvas =
+            document.getElementById(
+                "workingHoursDepartmentChart"
+            );
+
+
+        const existingChart =
+            Chart.getChart(canvas);
+
+
+        if (existingChart) {
+
+            existingChart.destroy();
+
+        }
+
+
+        new Chart(
+            canvas,
+            {
+
+                type: "line",
+
+                data: {
+
+                    labels:
+                        departments,
+
+                    datasets: [{
+
+                        label:
+                            "Average Working Hours",
+
+                        data:
+                            values,
+
+                        borderColor:
+                            "#F59E0B",
+
+                        backgroundColor:
+                            "rgba(245,158,11,0.15)",
+
+                        fill:
+                            true,
+
+                        tension:
+                            0.3
+
+                    }]
+
+                },
+
+                options: {
+
+                    responsive:
+                        true,
+
+                    maintainAspectRatio:
+                        false
+
+                }
+
+            }
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "Working hours department error:",
+            error
+        );
+
+    }
+}
+
+
+
+// =====================================================
+// APPLY FILTERS
+// =====================================================
+
+async function applyDoctorStaffFilters() {
+
+    await loadTotalDoctors();
+
+    await loadTotalStaff();
+
+    await loadAverageDoctorExperience();
+
+    await loadDoctorAttendance();
+
+    await loadDoctorsByDepartment();
+
+    await loadStaffByDepartment();
+
+    await loadDoctorExperience();
+
+    await loadAttendanceStatus();
+
+    await loadWorkingHoursDepartment();
+
+}
+
+
+
+// =====================================================
+// CLEAR FILTERS
+// =====================================================
+
+async function clearDoctorStaffFilters() {
+
+    document.getElementById(
+        "doctorStaffFacilityFilter"
+    ).value = "";
+
+
+    document.getElementById(
+        "doctorStaffDepartmentFilter"
+    ).value = "";
+
+
+    await applyDoctorStaffFilters();
+
+}
+
+
+
+// =====================================================
+// INITIAL PAGE LOAD
+// =====================================================
+
+async function loadDoctorStaffPage() {
+
+    await loadDoctorStaffFilters();
+
+    await applyDoctorStaffFilters();
+
+}
+
+
+loadDoctorStaffPage();
+
+</script>
+</body>
+
+</html>
