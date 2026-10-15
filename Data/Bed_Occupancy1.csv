@@ -1,0 +1,51 @@
+﻿_id,facility_id,facility_name,department_id,department_name,total_beds,occupied_beds,available_beds,bed_occupancy_rate,,date
+6ab4c4b663411c462b757bfb,F001,City Care Hospital,D005,General Medicine,27,17,10,62.96,,05-01-2026
+6ab4c4b663411c462b757c0c,F003,Sunrise Medical Center,D022,Neurology,82,60,22,73.17,,18-01-2026
+6ab4c4b663411c462b757c24,F005,MedPlus Hospital,D046,Dermatology,73,41,32,56.16,,20-01-2026
+6ab4c4b663411c462b757bff,F001,City Care Hospital,D009,Emergency,55,34,21,61.82,,24-01-2026
+6ab4c4b663411c462b757c05,F002,Apollo Branch,D015,General Medicine,55,45,10,81.82,,27-01-2026
+6ab4c4b663411c462b757c0b,F003,Sunrise Medical Center,D021,Cardiology,89,75,14,84.27,,30-01-2026
+6ab4c4b663411c462b757c1a,F004,LifeCare Hospital,D036,Dermatology,26,24,2,92.31,,01-02-2026
+6ab4c4b663411c462b757bfd,F001,City Care Hospital,D007,ENT,76,52,24,68.42,,02-02-2026
+6ab4c4b663411c462b757c07,F002,Apollo Branch,D017,ENT,36,25,11,69.44,,09-02-2026
+6ab4c4b663411c462b757c1b,F004,LifeCare Hospital,D037,ENT,27,20,7,74.07,,12-02-2026
+6ab4c4b663411c462b757c1c,F004,LifeCare Hospital,D038,Gynecology,62,39,23,62.9,,07-03-2026
+6ab4c4b663411c462b757bf7,F001,City Care Hospital,D001,Cardiology,99,60,39,60.61,,10-03-2026
+6ab4c4b663411c462b757bf8,F001,City Care Hospital,D002,Neurology,79,58,21,73.42,,11-03-2026
+6ab4c4b663411c462b757bf9,F001,City Care Hospital,D003,Orthopedics,81,52,29,64.2,,16-03-2026
+6ab4c4b663411c462b757bfc,F001,City Care Hospital,D006,Dermatology,78,64,14,82.05,,17-03-2026
+6ab4c4b663411c462b757c00,F001,City Care Hospital,D010,Radiology,83,60,23,72.29,,05-04-2026
+6ab4c4b663411c462b757c11,F003,Sunrise Medical Center,D027,ENT,61,54,7,88.52,,06-04-2026
+6ab4c4b663411c462b757c13,F003,Sunrise Medical Center,D029,Emergency,30,25,5,83.33,,10-04-2026
+6ab4c4b663411c462b757bfa,F001,City Care Hospital,D004,Pediatrics,88,59,29,67.05,,12-04-2026
+6ab4c4b663411c462b757c06,F002,Apollo Branch,D016,Dermatology,56,49,7,87.5,,27-04-2026
+6ab4c4b663411c462b757c14,F003,Sunrise Medical Center,D030,Radiology,60,52,8,86.67,,02-05-2026
+6ab4c4b663411c462b757c23,F005,MedPlus Hospital,D045,General Medicine,50,35,15,70,,08-05-2026
+6ab4c4b663411c462b757c25,F005,MedPlus Hospital,D047,ENT,34,23,11,67.65,,11-05-2026
+6ab4c4b663411c462b757c1e,F004,LifeCare Hospital,D040,Radiology,95,78,17,82.11,,17-05-2026
+6ab4c4b663411c462b757c1f,F005,MedPlus Hospital,D041,Cardiology,83,50,33,60.24,,31-05-2026
+6ab4c4b663411c462b757c26,F005,MedPlus Hospital,D048,Gynecology,72,45,27,62.5,,23-06-2026
+6ab4c4b663411c462b757c27,F005,MedPlus Hospital,D049,Emergency,52,29,23,55.77,,27-06-2026
+6ab4c4b663411c462b757c02,F002,Apollo Branch,D012,Neurology,86,74,12,86.05,,28-06-2026
+6ab4c4b663411c462b757c0e,F003,Sunrise Medical Center,D024,Pediatrics,64,52,12,81.25,,16-07-2026
+6ab4c4b663411c462b757c04,F002,Apollo Branch,D014,Pediatrics,55,46,9,83.64,,25-07-2026
+6ab4c4b663411c462b757c12,F003,Sunrise Medical Center,D028,Gynecology,56,48,8,85.71,,27-07-2026
+6ab4c4b663411c462b757c03,F002,Apollo Branch,D013,Orthopedics,38,28,10,73.68,,29-07-2026
+6ab4c4b663411c462b757c15,F004,LifeCare Hospital,D031,Cardiology,27,21,6,77.78,,06-08-2026
+6ab4c4b663411c462b757c17,F004,LifeCare Hospital,D033,Orthopedics,64,39,25,60.94,,18-08-2026
+6ab4c4b663411c462b757c28,F005,MedPlus Hospital,D050,Radiology,91,54,37,59.34,,31-08-2026
+6ab4c4b663411c462b757bfe,F001,City Care Hospital,D008,Gynecology,25,20,5,80,,12-09-2026
+6ab4c4b663411c462b757c08,F002,Apollo Branch,D018,Gynecology,89,66,23,74.16,,19-09-2026
+6ab4c4b663411c462b757c0d,F003,Sunrise Medical Center,D023,Orthopedics,87,68,19,78.16,,03-10-2026
+6ab4c4b663411c462b757c22,F005,MedPlus Hospital,D044,Pediatrics,42,36,6,85.71,,05-10-2026
+6ab4c4b663411c462b757c01,F002,Apollo Branch,D011,Cardiology,71,57,14,80.28,,13-10-2026
+6ab4c4b663411c462b757c0f,F003,Sunrise Medical Center,D025,General Medicine,33,25,8,75.76,,21-10-2026
+6ab4c4b663411c462b757c18,F004,LifeCare Hospital,D034,Pediatrics,81,63,18,77.78,,28-10-2026
+6ab4c4b663411c462b757c19,F004,LifeCare Hospital,D035,General Medicine,76,51,25,67.11,,22-11-2026
+6ab4c4b663411c462b757c1d,F004,LifeCare Hospital,D039,Emergency,48,27,21,56.25,,24-11-2026
+6ab4c4b663411c462b757c10,F003,Sunrise Medical Center,D026,Dermatology,25,18,7,72,,26-11-2026
+6ab4c4b663411c462b757c16,F004,LifeCare Hospital,D032,Neurology,98,62,36,63.27,,06-12-2026
+6ab4c4b663411c462b757c20,F005,MedPlus Hospital,D042,Neurology,56,40,16,71.43,,18-12-2026
+6ab4c4b663411c462b757c09,F002,Apollo Branch,D019,Emergency,92,82,10,89.13,,24-12-2026
+6ab4c4b663411c462b757c0a,F002,Apollo Branch,D020,Radiology,74,48,26,64.86,,30-12-2026
+6ab4c4b663411c462b757c21,F005,MedPlus Hospital,D043,Orthopedics,83,48,35,57.83,,31-12-2026

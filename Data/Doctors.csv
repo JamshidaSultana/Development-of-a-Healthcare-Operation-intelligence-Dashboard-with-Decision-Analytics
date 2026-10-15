@@ -1,0 +1,101 @@
+_id,doctor_id,doctor_name,facility_id,facility_name,department_id,department_name,specialization,experience_years,employment_type,consultation_fee,joining_date,status
+6ab4c7e763411c462b757c2a,DR001,Dr. Aarav Sharma,F001,City Care Hospital,D001,Cardiology,Cardiology,5,Full-Time,450,2018-02-15T00:00:00.000Z,Active
+6ab4c7e763411c462b757c33,DR010,Dr. Sameer Mehta,F001,City Care Hospital,D005,General Medicine,General Medicine,13,Full-Time,900,2019-03-27T00:00:00.000Z,Active
+6ab4c7e763411c462b757c40,DR023,Dr. Arjun Kumar,F002,Apollo Branch,D002,Neurology,Neurology,14,Full-Time,949,2020-11-01T00:00:00.000Z,Active
+6ab4c7e763411c462b757c41,DR024,Dr. Vikram Patel,F002,Apollo Branch,D002,Neurology,Neurology,17,Part-Time,999,2020-12-16T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6d,DR068,Dr. Sanjay Rao,F004,LifeCare Hospital,D004,Pediatrics,Pediatrics,16,Part-Time,795,2026-05-19T00:00:00.000Z,Active
+6ab4c7e763411c462b757c72,DR073,Dr. Arjun Kumar,F004,LifeCare Hospital,D007,ENT,ENT,12,Full-Time,444,2026-12-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7e,DR085,Dr. Aditya Singh,F005,MedPlus Hospital,D003,Orthopedics,Orthopedics,10,Full-Time,443,2028-06-22T00:00:00.000Z,Active
+6ab4c7e763411c462b757c82,DR089,Dr. Imran Gupta,F005,MedPlus Hospital,D005,General Medicine,General Medicine,3,Full-Time,643,2028-12-19T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3d,DR020,Dr. Sameer Mehta,F001,City Care Hospital,D010,Radiology,Radiology,5,Part-Time,799,2020-06-19T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5f,DR054,Dr. Vikram Patel,F003,Sunrise Medical Center,D007,ENT,ENT,12,Full-Time,696,2024-08-27T00:00:00.000Z,Active
+6ab4c7e763411c462b757c65,DR060,Dr. Sameer Mehta,F003,Sunrise Medical Center,D010,Radiology,Radiology,11,Part-Time,996,2025-05-24T00:00:00.000Z,Active
+6ab4c7e763411c462b757c74,DR075,Dr. Aditya Singh,F004,LifeCare Hospital,D008,Gynecology,Gynecology,18,Full-Time,544,2027-03-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c89,DR096,Dr. Kiran Khan,F005,MedPlus Hospital,D008,Gynecology,Gynecology,5,Part-Time,993,2029-10-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c53,DR042,Dr. Rahul Reddy,F003,Sunrise Medical Center,D001,Cardiology,Cardiology,14,Full-Time,697,2023-03-06T00:00:00.000Z,Active
+6ab4c7e763411c462b757c56,DR045,Dr. Aditya Singh,F003,Sunrise Medical Center,D003,Orthopedics,Orthopedics,4,Full-Time,847,2023-07-19T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5a,DR049,Dr. Imran Gupta,F003,Sunrise Medical Center,D005,General Medicine,General Medicine,16,Full-Time,446,2024-01-15T00:00:00.000Z,Active
+6ab4c7e763411c462b757c85,DR092,Dr. Rahul Reddy,F005,MedPlus Hospital,D006,Dermatology,Dermatology,12,Part-Time,793,2029-05-03T00:00:00.000Z,Active
+6ab4c7e763411c462b757c30,DR007,Dr. Rohan Verma,F001,City Care Hospital,D004,Pediatrics,Pediatrics,4,Full-Time,750,2018-11-12T00:00:00.000Z,Active
+6ab4c7e763411c462b757c37,DR014,Dr. Vikram Patel,F001,City Care Hospital,D007,ENT,ENT,6,Full-Time,499,2019-09-23T00:00:00.000Z,Active
+6ab4c7e763411c462b757c70,DR071,Dr. Aarav Sharma,F004,LifeCare Hospital,D006,Dermatology,Dermatology,6,Full-Time,945,2026-10-01T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7f,DR086,Dr. Kiran Khan,F005,MedPlus Hospital,D003,Orthopedics,Orthopedics,13,Full-Time,493,2028-08-06T00:00:00.000Z,Active
+6ab4c7e763411c462b757c88,DR095,Dr. Aditya Singh,F005,MedPlus Hospital,D008,Gynecology,Gynecology,2,Full-Time,943,2029-09-15T00:00:00.000Z,Active
+6ab4c7e763411c462b757c2c,DR003,Dr. Arjun Kumar,F001,City Care Hospital,D002,Neurology,Neurology,11,Full-Time,550,2018-05-16T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3c,DR019,Dr. Imran Gupta,F001,City Care Hospital,D010,Radiology,Radiology,2,Full-Time,749,2020-05-05T00:00:00.000Z,Active
+6ab4c7e763411c462b757c57,DR046,Dr. Kiran Khan,F003,Sunrise Medical Center,D003,Orthopedics,Orthopedics,7,Full-Time,897,2023-09-02T00:00:00.000Z,Active
+6ab4c7e763411c462b757c60,DR055,Dr. Aditya Singh,F003,Sunrise Medical Center,D008,Gynecology,Gynecology,15,Full-Time,746,2024-10-11T00:00:00.000Z,Active
+6ab4c7e763411c462b757c61,DR056,Dr. Kiran Khan,F003,Sunrise Medical Center,D008,Gynecology,Gynecology,18,Part-Time,796,2024-11-25T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6a,DR065,Dr. Aditya Singh,F004,LifeCare Hospital,D003,Orthopedics,Orthopedics,7,Full-Time,645,2026-01-04T00:00:00.000Z,Active
+6ab4c7e763411c462b757c71,DR072,Dr. Rahul Reddy,F004,LifeCare Hospital,D006,Dermatology,Dermatology,9,Part-Time,995,2026-11-15T00:00:00.000Z,Active
+6ab4c7e763411c462b757c76,DR077,Dr. Rohan Verma,F004,LifeCare Hospital,D009,Emergency,Emergency,5,Full-Time,644,2027-06-28T00:00:00.000Z,Active
+6ab4c7e763411c462b757c80,DR087,Dr. Rohan Verma,F005,MedPlus Hospital,D004,Pediatrics,Pediatrics,16,Full-Time,543,2028-09-20T00:00:00.000Z,Active
+6ab4c7e763411c462b757c38,DR015,Dr. Aditya Singh,F001,City Care Hospital,D008,Gynecology,Gynecology,9,Full-Time,549,2019-11-07T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4c,DR035,Dr. Aditya Singh,F002,Apollo Branch,D008,Gynecology,Gynecology,12,Full-Time,948,2022-04-25T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7b,DR082,Dr. Rahul Reddy,F005,MedPlus Hospital,D001,Cardiology,Cardiology,20,Full-Time,894,2028-02-08T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7c,DR083,Dr. Arjun Kumar,F005,MedPlus Hospital,D002,Neurology,Neurology,4,Full-Time,944,2028-03-24T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3f,DR022,Dr. Rahul Reddy,F002,Apollo Branch,D001,Cardiology,Cardiology,11,Full-Time,899,2020-09-17T00:00:00.000Z,Active
+6ab4c7e763411c462b757c50,DR039,Dr. Imran Gupta,F002,Apollo Branch,D010,Radiology,Radiology,5,Full-Time,547,2022-10-22T00:00:00.000Z,Active
+6ab4c7e763411c462b757c52,DR041,Dr. Aarav Sharma,F003,Sunrise Medical Center,D001,Cardiology,Cardiology,11,Full-Time,647,2023-01-20T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5c,DR051,Dr. Aarav Sharma,F003,Sunrise Medical Center,D006,Dermatology,Dermatology,3,Full-Time,546,2024-04-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c67,DR062,Dr. Rahul Reddy,F004,LifeCare Hospital,D001,Cardiology,Cardiology,17,Full-Time,495,2025-08-22T00:00:00.000Z,Active
+6ab4c7e763411c462b757c77,DR078,Dr. Sanjay Rao,F004,LifeCare Hospital,D009,Emergency,Emergency,8,Full-Time,694,2027-08-12T00:00:00.000Z,Active
+6ab4c7e763411c462b757c8d,DR100,Dr. Sameer Mehta,F005,MedPlus Hospital,D010,Radiology,Radiology,17,Part-Time,592,2030-04-28T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3a,DR017,Dr. Rohan Verma,F001,City Care Hospital,D009,Emergency,Emergency,15,Full-Time,649,2020-02-05T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3b,DR018,Dr. Sanjay Rao,F001,City Care Hospital,D009,Emergency,Emergency,18,Full-Time,699,2020-03-21T00:00:00.000Z,Active
+6ab4c7e763411c462b757c48,DR031,Dr. Aarav Sharma,F002,Apollo Branch,D006,Dermatology,Dermatology,19,Full-Time,748,2021-10-27T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4d,DR036,Dr. Kiran Khan,F002,Apollo Branch,D008,Gynecology,Gynecology,15,Part-Time,998,2022-06-09T00:00:00.000Z,Active
+6ab4c7e763411c462b757c58,DR047,Dr. Rohan Verma,F003,Sunrise Medical Center,D004,Pediatrics,Pediatrics,10,Full-Time,947,2023-10-17T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5b,DR050,Dr. Sameer Mehta,F003,Sunrise Medical Center,D005,General Medicine,General Medicine,19,Full-Time,496,2024-02-29T00:00:00.000Z,Active
+6ab4c7e763411c462b757c63,DR058,Dr. Sanjay Rao,F003,Sunrise Medical Center,D009,Emergency,Emergency,5,Full-Time,896,2025-02-23T00:00:00.000Z,Active
+6ab4c7e763411c462b757c66,DR061,Dr. Aarav Sharma,F004,LifeCare Hospital,D001,Cardiology,Cardiology,14,Full-Time,445,2025-07-08T00:00:00.000Z,Active
+6ab4c7e763411c462b757c3e,DR021,Dr. Aarav Sharma,F002,Apollo Branch,D001,Cardiology,Cardiology,8,Full-Time,849,2020-08-03T00:00:00.000Z,Active
+6ab4c7e763411c462b757c42,DR025,Dr. Aditya Singh,F002,Apollo Branch,D003,Orthopedics,Orthopedics,20,Full-Time,448,2021-01-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c59,DR048,Dr. Sanjay Rao,F003,Sunrise Medical Center,D004,Pediatrics,Pediatrics,13,Part-Time,997,2023-12-01T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6b,DR066,Dr. Kiran Khan,F004,LifeCare Hospital,D003,Orthopedics,Orthopedics,10,Full-Time,695,2026-02-18T00:00:00.000Z,Active
+6ab4c7e763411c462b757c2d,DR004,Dr. Vikram Patel,F001,City Care Hospital,D002,Neurology,Neurology,14,Part-Time,600,2018-06-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c2f,DR006,Dr. Kiran Khan,F001,City Care Hospital,D003,Orthopedics,Orthopedics,20,Full-Time,700,2018-09-28T00:00:00.000Z,Active
+6ab4c7e763411c462b757c36,DR013,Dr. Arjun Kumar,F001,City Care Hospital,D007,ENT,ENT,3,Full-Time,449,2019-08-09T00:00:00.000Z,Active
+6ab4c7e763411c462b757c46,DR029,Dr. Imran Gupta,F002,Apollo Branch,D005,General Medicine,General Medicine,13,Full-Time,648,2021-07-29T00:00:00.000Z,Active
+6ab4c7e763411c462b757c49,DR032,Dr. Rahul Reddy,F002,Apollo Branch,D006,Dermatology,Dermatology,3,Part-Time,798,2021-12-11T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4b,DR034,Dr. Vikram Patel,F002,Apollo Branch,D007,ENT,ENT,9,Full-Time,898,2022-03-11T00:00:00.000Z,Active
+6ab4c7e763411c462b757c51,DR040,Dr. Sameer Mehta,F002,Apollo Branch,D010,Radiology,Radiology,8,Part-Time,597,2022-12-06T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5e,DR053,Dr. Arjun Kumar,F003,Sunrise Medical Center,D007,ENT,ENT,9,Full-Time,646,2024-07-13T00:00:00.000Z,Active
+6ab4c7e763411c462b757c75,DR076,Dr. Kiran Khan,F004,LifeCare Hospital,D008,Gynecology,Gynecology,2,Part-Time,594,2027-05-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c81,DR088,Dr. Sanjay Rao,F005,MedPlus Hospital,D004,Pediatrics,Pediatrics,19,Part-Time,593,2028-11-04T00:00:00.000Z,Active
+6ab4c7e763411c462b757c86,DR093,Dr. Arjun Kumar,F005,MedPlus Hospital,D007,ENT,ENT,15,Full-Time,843,2029-06-17T00:00:00.000Z,Active
+6ab4c7e763411c462b757c2e,DR005,Dr. Aditya Singh,F001,City Care Hospital,D003,Orthopedics,Orthopedics,17,Full-Time,650,2018-08-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c32,DR009,Dr. Imran Gupta,F001,City Care Hospital,D005,General Medicine,General Medicine,10,Full-Time,850,2019-02-10T00:00:00.000Z,Active
+6ab4c7e763411c462b757c35,DR012,Dr. Rahul Reddy,F001,City Care Hospital,D006,Dermatology,Dermatology,19,Part-Time,1000,2019-06-25T00:00:00.000Z,Active
+6ab4c7e763411c462b757c39,DR016,Dr. Kiran Khan,F001,City Care Hospital,D008,Gynecology,Gynecology,12,Part-Time,599,2019-12-22T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4a,DR033,Dr. Arjun Kumar,F002,Apollo Branch,D007,ENT,ENT,6,Full-Time,848,2022-01-25T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4f,DR038,Dr. Sanjay Rao,F002,Apollo Branch,D009,Emergency,Emergency,2,Full-Time,497,2022-09-07T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7a,DR081,Dr. Aarav Sharma,F005,MedPlus Hospital,D001,Cardiology,Cardiology,17,Full-Time,844,2027-12-25T00:00:00.000Z,Active
+6ab4c7e763411c462b757c7d,DR084,Dr. Vikram Patel,F005,MedPlus Hospital,D002,Neurology,Neurology,7,Part-Time,994,2028-05-08T00:00:00.000Z,Active
+6ab4c7e763411c462b757c84,DR091,Dr. Aarav Sharma,F005,MedPlus Hospital,D006,Dermatology,Dermatology,9,Full-Time,743,2029-03-19T00:00:00.000Z,Active
+6ab4c7e763411c462b757c8b,DR098,Dr. Sanjay Rao,F005,MedPlus Hospital,D009,Emergency,Emergency,11,Full-Time,492,2030-01-28T00:00:00.000Z,Active
+6ab4c7e763411c462b757c2b,DR002,Dr. Rahul Reddy,F001,City Care Hospital,D001,Cardiology,Cardiology,8,Full-Time,500,2018-04-01T00:00:00.000Z,Active
+6ab4c7e763411c462b757c54,DR043,Dr. Arjun Kumar,F003,Sunrise Medical Center,D002,Neurology,Neurology,17,Full-Time,747,2023-04-20T00:00:00.000Z,Active
+6ab4c7e763411c462b757c5d,DR052,Dr. Rahul Reddy,F003,Sunrise Medical Center,D006,Dermatology,Dermatology,6,Part-Time,596,2024-05-29T00:00:00.000Z,Active
+6ab4c7e763411c462b757c69,DR064,Dr. Vikram Patel,F004,LifeCare Hospital,D002,Neurology,Neurology,4,Part-Time,595,2025-11-20T00:00:00.000Z,Active
+6ab4c7e763411c462b757c31,DR008,Dr. Sanjay Rao,F001,City Care Hospital,D004,Pediatrics,Pediatrics,7,Part-Time,800,2018-12-27T00:00:00.000Z,Active
+6ab4c7e763411c462b757c47,DR030,Dr. Sameer Mehta,F002,Apollo Branch,D005,General Medicine,General Medicine,16,Full-Time,698,2021-09-12T00:00:00.000Z,Active
+6ab4c7e763411c462b757c4e,DR037,Dr. Rohan Verma,F002,Apollo Branch,D009,Emergency,Emergency,18,Full-Time,447,2022-07-24T00:00:00.000Z,Active
+6ab4c7e763411c462b757c55,DR044,Dr. Vikram Patel,F003,Sunrise Medical Center,D002,Neurology,Neurology,20,Part-Time,797,2023-06-04T00:00:00.000Z,Active
+6ab4c7e763411c462b757c62,DR057,Dr. Rohan Verma,F003,Sunrise Medical Center,D009,Emergency,Emergency,2,Full-Time,846,2025-01-09T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6e,DR069,Dr. Imran Gupta,F004,LifeCare Hospital,D005,General Medicine,General Medicine,19,Full-Time,845,2026-07-03T00:00:00.000Z,Active
+6ab4c7e763411c462b757c73,DR074,Dr. Vikram Patel,F004,LifeCare Hospital,D007,ENT,ENT,15,Full-Time,494,2027-02-13T00:00:00.000Z,Active
+6ab4c7e763411c462b757c79,DR080,Dr. Sameer Mehta,F004,LifeCare Hospital,D010,Radiology,Radiology,14,Part-Time,794,2027-11-10T00:00:00.000Z,Active
+6ab4c7e763411c462b757c8c,DR099,Dr. Imran Gupta,F005,MedPlus Hospital,D010,Radiology,Radiology,14,Full-Time,542,2030-03-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c44,DR027,Dr. Rohan Verma,F002,Apollo Branch,D004,Pediatrics,Pediatrics,7,Full-Time,548,2021-04-30T00:00:00.000Z,Active
+6ab4c7e763411c462b757c68,DR063,Dr. Arjun Kumar,F004,LifeCare Hospital,D002,Neurology,Neurology,20,Full-Time,545,2025-10-06T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6c,DR067,Dr. Rohan Verma,F004,LifeCare Hospital,D004,Pediatrics,Pediatrics,13,Full-Time,745,2026-04-04T00:00:00.000Z,Active
+6ab4c7e763411c462b757c6f,DR070,Dr. Sameer Mehta,F004,LifeCare Hospital,D005,General Medicine,General Medicine,3,Full-Time,895,2026-08-17T00:00:00.000Z,Active
+6ab4c7e763411c462b757c87,DR094,Dr. Vikram Patel,F005,MedPlus Hospital,D007,ENT,ENT,18,Full-Time,893,2029-08-01T00:00:00.000Z,Active
+6ab4c7e763411c462b757c8a,DR097,Dr. Rohan Verma,F005,MedPlus Hospital,D009,Emergency,Emergency,8,Full-Time,442,2029-12-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c34,DR011,Dr. Aarav Sharma,F001,City Care Hospital,D006,Dermatology,Dermatology,16,Full-Time,950,2019-05-11T00:00:00.000Z,Active
+6ab4c7e763411c462b757c43,DR026,Dr. Kiran Khan,F002,Apollo Branch,D003,Orthopedics,Orthopedics,4,Full-Time,498,2021-03-16T00:00:00.000Z,Active
+6ab4c7e763411c462b757c45,DR028,Dr. Sanjay Rao,F002,Apollo Branch,D004,Pediatrics,Pediatrics,10,Part-Time,598,2021-06-14T00:00:00.000Z,Active
+6ab4c7e763411c462b757c64,DR059,Dr. Imran Gupta,F003,Sunrise Medical Center,D010,Radiology,Radiology,8,Full-Time,946,2025-04-09T00:00:00.000Z,Active
+6ab4c7e763411c462b757c78,DR079,Dr. Imran Gupta,F004,LifeCare Hospital,D010,Radiology,Radiology,11,Full-Time,744,2027-09-26T00:00:00.000Z,Active
+6ab4c7e763411c462b757c83,DR090,Dr. Sameer Mehta,F005,MedPlus Hospital,D005,General Medicine,General Medicine,6,Full-Time,693,2029-02-02T00:00:00.000Z,Active
