@@ -1,10 +1,10 @@
-# 🏥 Medical Operations Intelligence Dashboard & Decision Analysis
+ 🏥 Medical Operations Intelligence Dashboard & Decision Analysis
 
-## 📌 Project Overview
+ 📌 Project Overview
 
-The **Medical Operations Intelligence Dashboard & Decision Analysis System** is a healthcare analytics project designed to improve hospital operational efficiency through data analysis, interactive visualizations, and predictive intelligence. It consolidates healthcare data from multiple operational areas to monitor patient activity, appointments, hospital resources, staff performance, billing, revenue, and insurance claims. The system transforms raw healthcare data into meaningful insights that help hospital administrators identify operational issues, compare performance, forecast patient demand, and make informed, data-driven decisions.
+The Medical Operations Intelligence Dashboard & Decision Analysis System is a healthcare analytics project designed to improve hospital operational efficiency through data analysis, interactive visualizations, and predictive intelligence. It consolidates healthcare data from multiple operational areas to monitor patient activity, appointments, hospital resources, staff performance, billing, revenue, and insurance claims. The system transforms raw healthcare data into meaningful insights that help hospital administrators identify operational issues, compare performance, forecast patient demand, and make informed, data-driven decisions.
 
-## 🎯 Project Objectives
+ 🎯 Project Objectives
 
 * Monitor hospital operations and performance through an interactive dashboard.
 * Analyze patient admissions, appointments, and department-wise activity.
@@ -14,7 +14,7 @@ The **Medical Operations Intelligence Dashboard & Decision Analysis System** is 
 * Use predictive analytics to support operational planning.
 * Provide actionable insights to support healthcare management decisions.
 
-## 🛠️ Technologies Used
+ 🛠️ Technologies Used
 
 | Technology                | Purpose                                        |
 | ------------------------- | ---------------------------------------------- |
@@ -29,62 +29,62 @@ The **Medical Operations Intelligence Dashboard & Decision Analysis System** is 
 | Python & Machine Learning | Predictive analysis and forecasting            |
 | GitHub                    | Version control and project documentation      |
 
-## 🗂️ Healthcare Datasets
+ 🗂️ Healthcare Datasets
 
 The project uses multiple CSV datasets representing different hospital operational activities.
 
 | Dataset                      | Purpose                                                                               |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `Patients.csv`               | Patient demographics, department, admission and discharge information, and status     |
-| `Appointments.csv`           | Appointment details, waiting time, consultation duration, cancellations, and no-shows |
-| `Admission.csv`              | Admission records, admission type, discharge information, and length of stay          |
-| `Doctors.csv`                | Doctor details, specialization, experience, consultation fees, and employment status  |
-| `Staff.csv`                  | Staff roles, departments, employment types, shifts, and status                        |
-| `Attendance.csv`             | Doctor attendance, shift timings, working hours, and overtime                         |
-| `Bed_Occupancy.csv`          | Total beds, occupied beds, available beds, and bed occupancy rates                    |
-| `Billing.csv`                | Invoices, payments, insurance amounts, outstanding balances, and refunds              |
-| `Departments Facilities.csv` | Department and healthcare facility information                                        |
-| `Feedback.csv`               | Patient feedback and experience analysis                                              |
+| Patients.csv               | Patient demographics, department, admission and discharge information, and status     |
+| Appointments.csv           | Appointment details, waiting time, consultation duration, cancellations, and no-shows |
+| Admission.csv              | Admission records, admission type, discharge information, and length of stay          |
+| Doctors.csv                | Doctor details, specialization, experience, consultation fees, and employment status  |
+| Staff.csv                  | Staff roles, departments, employment types, shifts, and status                        |
+| Attendance.csv             | Doctor attendance, shift timings, working hours, and overtime                         |
+| Bed_Occupancy.csv          | Total beds, occupied beds, available beds, and bed occupancy rates                    |
+| Billing.csv                | Invoices, payments, insurance amounts, outstanding balances, and refunds              |
+| Departments Facilities.csv | Department and healthcare facility information                                        |
+| Feedback.csv               | Patient feedback and experience analysis                                              |
 
 These datasets support analysis across patient operations, staffing, resource utilization, financial performance, and patient experience.
 
-## 🔄 Data Processing and Development Workflow
+ 🔄 Data Processing and Development Workflow
 
 The project follows a structured data-to-decision workflow.
 
-### Step 1: Data Collection
+Step 1: Data Collection
 
 Healthcare operational data was organized into separate CSV files representing patients, appointments, admissions, doctors, staff, attendance, bed occupancy, billing, departments, facilities, and feedback.
 
-### Step 2: Data Cleaning and Preparation
+Step 2: Data Cleaning and Preparation
 
 The CSV datasets were prepared for analysis by standardizing column names, using lowercase names with underscores where appropriate, checking for duplicate records and missing values, and organizing data into consistent structures.
 
-### Step 3: MongoDB Database Management
+Step 3: MongoDB Database Management
 
 MongoDB Atlas was used as the cloud database platform, with MongoDB Compass used to import and manage the prepared CSV datasets as collections. The data was organized into collections corresponding to the different healthcare operational areas.
 
-### Step 4: Backend Development
+Step 4: Backend Development
 
 Node.js and Express.js were used to build the backend server. The application serves the dashboard interface and provides API endpoints for testing and accessing application functionality.
 
 During the current dashboard implementation, the prepared CSV files in the project's `data` directory are used as the data source for dashboard analysis. MongoDB Atlas is maintained for database storage and management.
 
-### Step 5: Data Analysis and Visualization
+Step 5: Data Analysis and Visualization
 
 JavaScript and Chart.js are used to calculate operational metrics and display healthcare data through KPI cards, charts, and comparative visualizations. This allows users to understand trends and performance across different operational areas.
 
-### Step 6: Predictive Analytics
+Step 6: Predictive Analytics
 
 Machine learning is incorporated into the project to explore future operational demand and bed occupancy. A patient-demand forecasting module estimates upcoming appointment demand, while a separate bed occupancy model analyzes historical occupancy data and generates forecasts.
 
-### Step 7: Decision Analysis
+Step 7: Decision Analysis
 
 The dashboard brings together descriptive analytics, performance indicators, and predictive insights to help administrators identify areas requiring attention, evaluate resource utilization, and plan operational improvements.
 
-## 📊 Dashboard Modules and Visualizations
+📊 Dashboard Modules and Visualizations
 
-### 1. Executive Command Center
+1. Executive Command Center
 
 Provides a high-level overview of hospital performance through key performance indicators and visual summaries.
 
@@ -98,7 +98,7 @@ Provides a high-level overview of hospital performance through key performance i
 * Department performance comparison
 * Patient flow and operational indicators
 
-### 2. Patient Operations
+2. Patient Operations
 
 Focuses on patient activity and service efficiency.
 
@@ -109,7 +109,7 @@ Focuses on patient activity and service efficiency.
 * Patient waiting times and service trends
 * Admission and discharge analysis
 
-### 3. Doctor and Staff Intelligence
+3. Doctor and Staff Intelligence
 
 Supports workforce monitoring and operational planning.
 
@@ -119,7 +119,7 @@ Supports workforce monitoring and operational planning.
 * Working hours and overtime analysis
 * Doctor specialization and experience analysis
 
-### 4. Insurance and Claims Intelligence
+4. Insurance and Claims Intelligence
 
 Supports financial and insurance-related operational analysis.
 
@@ -129,7 +129,7 @@ Supports financial and insurance-related operational analysis.
 * Payment status monitoring
 * Claims processing and status tracking
 
-### 5. AI Predictive Intelligence
+5. AI Predictive Intelligence
 
 Introduces predictive analytics to support proactive planning.
 
@@ -141,7 +141,7 @@ Introduces predictive analytics to support proactive planning.
 
 *Note: Forecasts are estimates based on the available historical data and should be evaluated before being used for operational decisions.*
 
-## 📈 Charts and Graphs
+📈 Charts and Graphs
 
 The dashboard uses visualizations to make healthcare data easier to understand.
 
@@ -155,23 +155,23 @@ The dashboard uses visualizations to make healthcare data easier to understand.
 | Workforce Charts             | Analyze staffing and attendance                             |
 | Forecast Chart               | Compare historical activity with predicted demand           |
 
-## 🧠 Decision Analysis Approach
+🧠 Decision Analysis Approach
 
 The system supports healthcare management decisions through three levels of analysis:
 
-**1. Descriptive Analytics — What happened?**
+1. Descriptive Analytics — What happened?**
 
 Analyzes historical patient records, appointments, admissions, billing, attendance, and resource utilization.
 
-**2. Diagnostic Analysis — Where should attention be focused?**
+2. Diagnostic Analysis — Where should attention be focused?**
 
 Helps identify departments with higher patient activity, appointment delays, bed occupancy concerns, workforce imbalances, or outstanding payments.
 
-**3. Predictive Analytics — What may happen next?**
+3. Predictive Analytics — What may happen next?**
 
 Uses historical data to estimate future patient demand and bed occupancy, supporting staffing and resource planning.
 
-### Examples of Operational Decisions
+ Examples of Operational Decisions
 
 * High bed occupancy may indicate the need to review bed allocation and discharge planning.
 * Longer appointment waiting times may indicate a need to review scheduling and staffing.
@@ -181,11 +181,11 @@ Uses historical data to estimate future patient demand and bed occupancy, suppor
 
 These are decision-support examples; the dashboard does not automatically make clinical decisions.
 
-## 🏗️ Project Structure
+🏗️ Project Structure
 
 The main application is organized as follows:
 
-```text
+
 Medical-Operations-Intelligence-Dashboard/
 │
 ├── data/
@@ -211,17 +211,17 @@ Medical-Operations-Intelligence-Dashboard/
 └── README.md
 ```
 
-*This structure is a representative overview. Update the filenames and folders to match the final contents of your repository.*
+This structure is a representative overview. Update the filenames and folders to match the final contents of your repository.*
 
-## ⚙️ How to Run the Project
+⚙️ How to Run the Project
 
-### Prerequisites
+ Prerequisites
 
 * Node.js and npm
 * A code editor such as Visual Studio Code
 * The project source files and prepared CSV datasets
 
-### Installation and Execution
+ Installation and Execution
 
 1. Clone or download the GitHub repository.
 
@@ -231,63 +231,27 @@ Medical-Operations-Intelligence-Dashboard/
 
 4. Install the required dependencies:
 
-   ```bash
+   bash
    npm install
-   ```
+   
 
 5. Start the Node.js server using the command configured in your project:
 
-   ```bash
+   bash
    node server.js
-   ```
+   
 
 6. Open the dashboard in your browser using the local address configured by the application, for example:
 
-   ```text
+   
    http://localhost:3000
-   ```
+   
 
 7. Explore the dashboard modules, KPI cards, charts, and predictive analytics features.
 
 *Ensure that the required dependencies are listed in `package.json` and that the port matches the configuration in `server.js`.*
 
-## 🖼️ Dashboard Screenshots
-
-Add screenshots of your actual dashboard pages to a folder named `screenshots` in the repository. You can then display them in this section.
-
-**Executive Command Center**
-
-```markdown
-![Executive Command Center](screenshots/executive-command-center.png)
-```
-
-**Patient Operations Dashboard**
-
-```markdown
-![Patient Operations](screenshots/patient-operations.png)
-```
-
-**Doctor and Staff Intelligence**
-
-```markdown
-![Doctor and Staff Intelligence](screenshots/doctor-staff-intelligence.png)
-```
-
-**Insurance and Claims Intelligence**
-
-```markdown
-![Insurance and Claims](screenshots/insurance-claims.png)
-```
-
-**AI Predictive Intelligence**
-
-```markdown
-![AI Predictive Intelligence](screenshots/ai-predictive-intelligence.png)
-```
-
-Replace these example image paths with the actual names of your uploaded screenshots. GitHub will display the images automatically when the paths are correct.
-
-## 🚀 Key Features
+🚀 Key Features
 
 * Multi-dataset healthcare operations analysis
 * Interactive dashboard and KPI monitoring
@@ -300,7 +264,7 @@ Replace these example image paths with the actual names of your uploaded screens
 * Data-driven operational decision support
 * Modular dashboard architecture
 
-## 🔮 Future Enhancements
+🔮 Future Enhancements
 
 * Integrate MongoDB Atlas directly with the application backend for database-driven dashboard updates.
 * Implement automated data refresh and scheduled reporting.
@@ -311,26 +275,25 @@ Replace these example image paths with the actual names of your uploaded screens
 * Deploy the application to a cloud hosting platform.
 * Strengthen security, privacy, and access controls for healthcare data.
 
-## 🎓 Project Outcome
+🎓 Project Outcome
 
 The Medical Operations Intelligence Dashboard & Decision Analysis System demonstrates how healthcare operational data can be organized, analyzed, and visualized to support hospital management. By combining structured datasets, database management, backend development, interactive charts, and predictive analytics, the project aims to improve operational visibility and enable more informed decisions about patients, staffing, resources, and financial performance.
 
-## 👩‍💻 Project Information
+👩‍💻 Project Information
 
-**Project Title:** Medical Operations Intelligence Dashboard & Decision Analysis System
+Project Title: Medical Operations Intelligence Dashboard & Decision Analysis System
 
-**Domain:** Healthcare Analytics, Business Intelligence, and Predictive Analytics
+Domain: Healthcare Analytics, Business Intelligence, and Predictive Analytics
 
-**Backend:** Node.js and Express.js
+Backend: Node.js and Express.js
 
-**Database:** MongoDB Atlas
+Database: MongoDB Atlas
 
-**Data Sources:** Structured CSV datasets
+Data Sources: Structured CSV datasets
 
-**Visualization:** Chart.js
+Visualization: Chart.js
 
-**Version Control:** GitHub
+Version Control:GitHub
 
 ---
 
-*This project is developed for educational and analytical purposes. Predictions and dashboard insights are intended to support operational planning and are not a substitute for professional clinical judgment.*
